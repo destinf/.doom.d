@@ -25,3 +25,4 @@
 (setq mac-option-modifier 'meta)
 (setq which-key-idle-delay 0.5)
 (add-hook 'ruby-mode #'(lambda () (modify-syntax-entry ?_ "w")))
+; https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
