@@ -11,4 +11,4 @@
   :recipe (:fetcher github
            :repo "hlissner/emacs-snippets"
            :files ("*")))
-(package! multiple-cursors)
+(package! ggtags)
