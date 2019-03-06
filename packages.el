@@ -13,3 +13,4 @@
            :files ("*")))
 (package! multiple-cursors)
 (package! git-link)
+(package! ggtags)
