@@ -9,7 +9,11 @@
 ;; in default doom-emacs
 
 (map! :leader
-      ;; Jump Mode, prefix j
+      :desc "M-x" "SPC" #'execute-extended-command
+      :desc "Search project" "/"
+      (cond ((featurep! :completion ivy)  #'+ivy/project-search)
+            ((featurep! :completion helm) #'+helm/project-search))
+
       (:prefix ("j" . "jump")
         :desc "avy-goto-char-2" :nv "j" #'avy-goto-char-2)
 
@@ -38,9 +42,6 @@
         :desc "Search project"                "p"
         (cond ((featurep! :completion ivy)  #'+ivy/project-search)
               ((featurep! :completion helm) #'+helm/project-search)))
-      :desc "Search project" "/"
-      (cond ((featurep! :completion ivy)  #'+ivy/project-search)
-            ((featurep! :completion helm) #'+helm/project-search))
       (:prefix ("p")
         :desc "Find file in project" "f" #'projectile-find-file)
       )
@@ -69,6 +70,7 @@
 (setq-default evil-shift-width 2)
 (after! flycheck
   (setq-default global-flycheck-mode nil)) ; just
+(setq-default evil-escape-key-sequence "fd")
 
 (map!
  ;; Easier window navigation
