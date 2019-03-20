@@ -9,6 +9,7 @@
 ;; in default doom-emacs
 
 (map! :leader
+      :desc "Eval" ":" #'eldoc-eval-expression
       :desc "M-x" "SPC" #'execute-extended-command
       :desc "Search project" "/"
       (cond ((featurep! :completion ivy)  #'+ivy/project-search)
@@ -57,7 +58,6 @@
     (unless (file-exists-p tag-file)
       (shell-command "etags *.[ch] -o TAGS 2>/dev/null"))
     (visit-tags-table tag-file)))
-;; (setq-default display-line-numbers 'relative) ;THIS DOESN'T WORK
 (setq mac-option-modifier 'meta)
 (setq which-key-idle-delay 0.2)
 (add-hook 'enh-ruby-mode-hook '(lambda () (modify-syntax-entry ?_ "w")))
@@ -71,6 +71,17 @@
 (after! flycheck
   (setq-default global-flycheck-mode nil)) ; just
 (setq-default evil-escape-key-sequence "fd")
+(setq ivy-re-builders-alist
+      '((t . ivy--regex-fuzzy)))
+(after! magit
+  (setq magit-pre-refresh-hook nil)
+  (setq magit-refresh-staus-buffer nil))
+
+;; Set line numbers to be relative
+(setq display-line-numbers 'relative)
+(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-current-absolute t)
+(global-display-line-numbers-mode t)
 
 (map!
  ;; Easier window navigation

@@ -14,3 +14,4 @@
 (package! multiple-cursors)
 (package! git-link)
 (package! ggtags)
+(package! flx)
