@@ -15,3 +15,6 @@
 (package! git-link)
 (package! ggtags)
 (package! flx)
+(package! tss)
+(package! tide)
+(package! typescript-mode)

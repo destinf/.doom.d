@@ -83,10 +83,34 @@
 (setq display-line-numbers-current-absolute t)
 (global-display-line-numbers-mode t)
 
+;; Begin Tide setup
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  ;; company is an optional dependency. You have to
+  ;; install it separately via package-install
+  ;; `M-x package-install [ret] company`
+  (company-mode +1))
+
+;; aligns annotation to the right hand side
+(setq company-tooltip-align-annotations t)
+
+;; formats the buffer before saving
+(add-hook 'before-save-hook 'tide-format-before-save)
+
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
+;; End Tide setup
+
+
 (map!
  ;; Easier window navigation
  :n "C-h"   #'evil-window-left
  :n "C-j"   #'evil-window-down
  :n "C-k"   #'evil-window-up
- :n "C-l" #'evil-window-right
+ :n "C-l"   #'evil-window-right
+ :n "-"     #'dired-jump
 )
