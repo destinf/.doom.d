@@ -16,7 +16,9 @@
             ((featurep! :completion helm) #'+helm/project-search))
 
       (:prefix ("j" . "jump")
-        :desc "avy-goto-char-2" :nv "j" #'avy-goto-char-2)
+        :desc "avy-goto-char-2" :nv "c" #'avy-goto-char-2
+        :desc "avy-goto-line" :nv "l" #'avy-goto-line
+        :desc "avy-goto-char-timer" :nv "j" #'avy-goto-char-timer)
 
       (:prefix ("y" . "snippets")
           :desc "New snippet"                "n" #'yas-new-snippet
@@ -72,7 +74,10 @@
   (setq-default global-flycheck-mode nil)) ; just
 (setq-default evil-escape-key-sequence "fd")
 (setq ivy-re-builders-alist
-      '((t . ivy--regex-fuzzy)))
+      '((counsel-rg . ivy--regex-plus)
+        (counsel-ag . ivy--regex-plus)
+        (counsel-pt . ivy--regex-plus)
+        (t . ivy--regex-fuzzy)))
 (after! magit
   (setq magit-pre-refresh-hook nil)
   (setq magit-refresh-staus-buffer nil))
@@ -105,6 +110,8 @@
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 ;; End Tide setup
 
+;;Avy config
+(setq avy-all-windows t)
 
 (map!
  ;; Easier window navigation
