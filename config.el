@@ -68,8 +68,6 @@
 ; https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
 (setq-local imenu-create-index-function #'ggtags-build-imenu-index)
 
-(setq-default tab-width 2)
-(setq-default evil-shift-width 2)
 (after! flycheck
   (setq-default global-flycheck-mode nil)) ; just
 (setq-default evil-escape-key-sequence "fd")
@@ -95,11 +93,7 @@
   (flycheck-mode +1)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
-  (tide-hl-identifier-mode +1)
-  ;; company is an optional dependency. You have to
-  ;; install it separately via package-install
-  ;; `M-x package-install [ret] company`
-  (company-mode +1))
+  (tide-hl-identifier-mode +1))
 
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
@@ -109,6 +103,12 @@
 
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 ;; End Tide setup
+
+;; indentation
+;; (add-hook 'js-mode-hook (lambda() (setq js-indent-level 2)))`
+;; (setq-default tab-width 2)
+;; (setq-default evil-shift-width 2)
+
 
 ;;Avy config
 (setq avy-all-windows t)
