@@ -18,3 +18,4 @@
 (package! tss)
 (package! tide)
 (package! typescript-mode)
+(package! deadgrep)

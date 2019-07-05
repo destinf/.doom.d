@@ -44,9 +44,13 @@
         :desc "Look up online"                "o" #'+lookup/online-select
         :desc "Search project"                "p"
         (cond ((featurep! :completion ivy)  #'+ivy/project-search)
-              ((featurep! :completion helm) #'+helm/project-search)))
+              ((featurep! :completion helm) #'+helm/project-search))
+        :desc "deadgrep"                      ";" #'deadgrep
+        )
       (:prefix ("p")
         :desc "Find file in project" "f" #'projectile-find-file)
+      (:prefix ("f")
+        :desc "Toggle Treemacs" "t" #'treemacs)
       )
 (load! "+evil-org")
 
