@@ -119,9 +119,6 @@
 
 (map!
  ;; Easier window navigation
- :n "C-h"   #'evil-window-left
- :n "C-j"   #'evil-window-down
- :n "C-k"   #'evil-window-up
- :n "C-l"   #'evil-window-right
  :n "-"     #'dired-jump
+ :n "C-s"   #'counsel-grep-or-swiper
 )
