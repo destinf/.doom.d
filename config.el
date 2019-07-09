@@ -28,6 +28,8 @@
           :desc "Browse snippets"            "S" #'+snippets/browse
           :desc "Reload snippets"            "r" #'yas-reload-all)
 
+      (:prefix ("r" . "resume")
+        :desc "Resume Ivy"                   "l" #'ivy-resume)
       (:prefix ("s" . "search")
         "/" nil
         "n" nil
@@ -74,7 +76,9 @@
 
 (after! flycheck
   (setq-default global-flycheck-mode nil)) ; just
-(setq-default evil-escape-key-sequence "fd")
+
+;; (setq-default evil-escape-key-sequence "fd")
+
 (setq ivy-re-builders-alist
       '((counsel-rg . ivy--regex-plus)
         (counsel-ag . ivy--regex-plus)
@@ -113,15 +117,5 @@
 ;; (setq-default tab-width 2)
 ;; (setq-default evil-shift-width 2)
 
-
 ;;Avy config
 (setq avy-all-windows t)
-
-(map!
- ;; Easier window navigation
- :n "C-h"   #'evil-window-left
- :n "C-j"   #'evil-window-down
- :n "C-k"   #'evil-window-up
- :n "C-l"   #'evil-window-right
- :n "-"     #'dired-jump
-)
