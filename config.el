@@ -117,10 +117,10 @@
       (:prefix ("f")
         :desc "Toggle Treemacs" "t" #'treemacs)
       )
-
 (map!
  ;; Easier window navigation
  :n "-"     #'dired-jump
  :n "C-s"   #'counsel-grep-or-swiper
 )
+
 (setq mac-option-modifier 'meta)
