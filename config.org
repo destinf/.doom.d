@@ -9,6 +9,11 @@
 (def-package! rvm)
 (rvm-use-default)
 #+END_SRC
+** Awesome-tab
+#+BEGIN_SRC emacs-lisp
+;; (load! "lisp/awesome-tab/awesome-tab")
+;; (awesome-tab-mode t)
+#+END_SRC
 ** Helm Dash
 #+BEGIN_SRC emacs-lisp
 (def-package! helm-dash)
@@ -50,6 +55,28 @@
 (add-hook 'enh-ruby-mode-hook 'robe-mode)
 (add-hook 'enh-ruby-mode-hook 'yard-mode)
 #+END_SRC
+** Javascript Mode
+Indentation
+#+BEGIN_SRC emacs-lisp
+(add-hook 'js-mode-hook (lambda() (setq js-indent-level 2)))`
+#+END_SRC
+
+** Typescript Mode
+#+BEGIN_SRC emacs-lisp
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1))
+
+;; formats the buffer before saving
+(add-hook 'before-save-hook 'tide-format-before-save)
+
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
+#+END_SRC
+
 ** Miscellaneous
 Not really sure where these should go
 #+BEGIN_SRC emacs-lisp
@@ -61,43 +88,23 @@ Not really sure where these should go
 
 ;; (setq-default evil-escape-key-sequence "fd")
 
-(setq ivy-re-builders-alist
-      '((counsel-rg . ivy--regex-plus)
-        (counsel-ag . ivy--regex-plus)
-        (counsel-pt . ivy--regex-plus)
-        (t . ivy--regex-fuzzy)))
-(after! magit
-  (setq magit-pre-refresh-hook nil)
-  (setq magit-refresh-staus-buffer nil))
+;; (setq ivy-re-builders-alist
+;;       '((counsel-rg . ivy--regex-plus)
+;;         (counsel-ag . ivy--regex-plus)
+;;         (counsel-pt . ivy--regex-plus)
+;;         (t . ivy--regex-fuzzy)))
 
-;; Set line numbers to be relative
-(setq display-line-numbers 'relative)
-(setq display-line-numbers-type 'relative)
-(setq display-line-numbers-current-absolute t)
-(global-display-line-numbers-mode t)
 
-;; Begin Tide setup
-(defun setup-tide-mode ()
-  (interactive)
-  (tide-setup)
-  (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (eldoc-mode +1)
-  (tide-hl-identifier-mode +1))
 
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
-
-;; formats the buffer before saving
-(add-hook 'before-save-hook 'tide-format-before-save)
-
-(add-hook 'typescript-mode-hook #'setup-tide-mode)
-;; End Tide setup
-
-;; indentation
-;; (add-hook 'js-mode-hook (lambda() (setq js-indent-level 2)))`
-;; (setq-default tab-width 2)
-;; (setq-default evil-shift-width 2)
+#+END_SRC
+** Magit
+Optimizations for magit
+#+BEGIN_SRC emacs-lisp
+(after! magit
+  (setq magit-pre-refresh-hook nil)
+  (setq magit-refresh-staus-buffer nil))
 #+END_SRC
 * Key Configuration
 This is my leader config which overrides some of the other leader configs
@@ -153,4 +160,19 @@ in default doom-emacs
 #+END_SRC
 #+BEGIN_SRC emacs-lisp
 (setq mac-option-modifier 'meta)
+#+END_SRC
+
+* Editor Configuration
+Indents
+#+BEGIN_SRC emacs-lisp
+(setq-default tab-width 2)
+(setq-default evil-shift-width 2)
+#+END_SRC
+Line Numbering
+#+BEGIN_SRC emacs-lisp
+;; Set line numbers to be relative
+(setq display-line-numbers 'relative)
+(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-current-absolute t)
+(global-display-line-numbers-mode t)
 #+END_SRC

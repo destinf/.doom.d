@@ -1,6 +1,9 @@
 (def-package! rvm)
 (rvm-use-default)
 
+;; (load! "lisp/awesome-tab/awesome-tab")
+;; (awesome-tab-mode t)
+
 (def-package! helm-dash)
 
 (after! avy
@@ -24,30 +27,8 @@
 (add-hook 'enh-ruby-mode-hook 'robe-mode)
 (add-hook 'enh-ruby-mode-hook 'yard-mode)
 
-; https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
-(setq-local imenu-create-index-function #'ggtags-build-imenu-index)
+(add-hook 'js-mode-hook (lambda() (setq js-indent-level 2)))`
 
-(after! flycheck
-  (setq-default global-flycheck-mode nil)) ; just
-
-;; (setq-default evil-escape-key-sequence "fd")
-
-(setq ivy-re-builders-alist
-      '((counsel-rg . ivy--regex-plus)
-        (counsel-ag . ivy--regex-plus)
-        (counsel-pt . ivy--regex-plus)
-        (t . ivy--regex-fuzzy)))
-(after! magit
-  (setq magit-pre-refresh-hook nil)
-  (setq magit-refresh-staus-buffer nil))
-
-;; Set line numbers to be relative
-(setq display-line-numbers 'relative)
-(setq display-line-numbers-type 'relative)
-(setq display-line-numbers-current-absolute t)
-(global-display-line-numbers-mode t)
-
-;; Begin Tide setup
 (defun setup-tide-mode ()
   (interactive)
   (tide-setup)
@@ -56,19 +37,33 @@
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1))
 
-;; aligns annotation to the right hand side
-(setq company-tooltip-align-annotations t)
-
 ;; formats the buffer before saving
 (add-hook 'before-save-hook 'tide-format-before-save)
 
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
-;; End Tide setup
 
-;; indentation
-;; (add-hook 'js-mode-hook (lambda() (setq js-indent-level 2)))`
-;; (setq-default tab-width 2)
-;; (setq-default evil-shift-width 2)
+; https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
+(setq-local imenu-create-index-function #'ggtags-build-imenu-index)
+
+(after! flycheck
+  (setq-default global-flycheck-mode nil)) ; just
+
+;; (setq-default evil-escape-key-sequence "fd")
+
+;; (setq ivy-re-builders-alist
+;;       '((counsel-rg . ivy--regex-plus)
+;;         (counsel-ag . ivy--regex-plus)
+;;         (counsel-pt . ivy--regex-plus)
+;;         (t . ivy--regex-fuzzy)))
+
+
+
+;; aligns annotation to the right hand side
+(setq company-tooltip-align-annotations t)
+
+(after! magit
+  (setq magit-pre-refresh-hook nil)
+  (setq magit-refresh-staus-buffer nil))
 
 (map! :n "gb" #'browse-url)
 (map! :leader
@@ -119,3 +114,12 @@
       )
 
 (setq mac-option-modifier 'meta)
+
+(setq-default tab-width 2)
+(setq-default evil-shift-width 2)
+
+;; Set line numbers to be relative
+(setq display-line-numbers 'relative)
+(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-current-absolute t)
+(global-display-line-numbers-mode t)

@@ -19,3 +19,6 @@
 (package! tide)
 (package! typescript-mode)
 (package! deadgrep)
+(package! awesome-tab
+  :recipe (:fetcher github
+                    :repo "manateelazycat/awesome-tab"))
