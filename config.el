@@ -56,8 +56,6 @@
 ;;         (counsel-pt . ivy--regex-plus)
 ;;         (t . ivy--regex-fuzzy)))
 
-
-
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
 

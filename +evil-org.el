@@ -140,7 +140,8 @@ FUN function callback"
   "<" 'org-metaleft
   ">" 'org-metaright
   "-" 'org-cycle-list-bullet
-  (kbd "TAB") 'org-cycle)
+ ;; (kbd "TAB") 'org-cycle
+  )
 
 ;; normal & insert state shortcuts.
 (mapc (lambda (state)

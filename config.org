@@ -25,7 +25,7 @@
 #+END_SRC
 ** Org Mode
 #+BEGIN_SRC
-(load! "+evil-org")
+;; (load! "+evil-org")
 #+END_SRC
 ** Coffeescript
 #+BEGIN_SRC emacs-lisp
@@ -93,8 +93,6 @@ Not really sure where these should go
 ;;         (counsel-ag . ivy--regex-plus)
 ;;         (counsel-pt . ivy--regex-plus)
 ;;         (t . ivy--regex-fuzzy)))
-
-
 
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
