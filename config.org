@@ -6,7 +6,7 @@
 * Package Configuration
 ** RVM
 #+BEGIN_SRC emacs-lisp
-(def-package! rvm)
+(use-package! rvm)
 (rvm-use-default)
 #+END_SRC
 ** Awesome-tab
@@ -16,7 +16,7 @@
 #+END_SRC
 ** Helm Dash
 #+BEGIN_SRC emacs-lisp
-(def-package! helm-dash)
+(use-package! helm-dash)
 #+END_SRC
 ** Avy
 #+BEGIN_SRC emacs-lisp
@@ -29,11 +29,11 @@
 #+END_SRC
 ** Coffeescript
 #+BEGIN_SRC emacs-lisp
-(def-package! coffee-mode)
+(use-package! coffee-mode)
 #+END_SRC
 ** Spell Check
 #+BEGIN_SRC emacs-lisp
-(def-package! auto-dictionary)
+(use-package! auto-dictionary)
 (add-hook 'flyspell-mode-hook (lambda () (auto-dictionary-mode 1)))
 #+END_SRC
 ** Automatically Create tags
@@ -103,6 +103,20 @@ Optimizations for magit
 (after! magit
   (setq magit-pre-refresh-hook nil)
   (setq magit-refresh-staus-buffer nil))
+#+END_SRC
+** Dap-mode
+#+BEGIN_SRC emacs-lisp
+(defun me/configure-dap-mode ()
+  "Configure personal settings for dap-mode"
+  (require 'dap-ruby)
+  (dap-mode 1)
+  ;; enables mouse hover support
+  (dap-tooltip-mode 1)
+  ;; use tooltips for mouse hover
+  ;; if it is not enabled `dap-mode' will use the minibuffer.
+  (tooltip-mode 1))
+(use-package! dap-mode
+  :config (me/configure-dap-mode))
 #+END_SRC
 * Key Configuration
 This is my leader config which overrides some of the other leader configs
@@ -177,5 +191,11 @@ Line Numbering
 (setq display-line-numbers 'relative)
 (setq display-line-numbers-type 'relative)
 (setq display-line-numbers-current-absolute t)
-(global-display-line-numbers-mode t)
+;; (global-display-line-numbers-mode t)
+#+END_SRC
+
+* Emacs Mode Keybindings
+** Goto file
+#+BEGIN_SRC emacs-lisp
+(local-set-key [134217831 102] 'find-file-at-point)
 #+END_SRC

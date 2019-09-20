@@ -1,17 +1,17 @@
-(def-package! rvm)
+(use-package! rvm)
 (rvm-use-default)
 
 ;; (load! "lisp/awesome-tab/awesome-tab")
 ;; (awesome-tab-mode t)
 
-(def-package! helm-dash)
+(use-package! helm-dash)
 
 (after! avy
   (setq avy-all-windows 'all-frames))
 
-(def-package! coffee-mode)
+(use-package! coffee-mode)
 
-(def-package! auto-dictionary)
+(use-package! auto-dictionary)
 (add-hook 'flyspell-mode-hook (lambda () (auto-dictionary-mode 1)))
 
 (defadvice xref-find-definitions (before c-tag-file activate)
@@ -62,6 +62,18 @@
 (after! magit
   (setq magit-pre-refresh-hook nil)
   (setq magit-refresh-staus-buffer nil))
+
+(defun me/configure-dap-mode ()
+  "Configure personal settings for dap-mode"
+  (require 'dap-ruby)
+  (dap-mode 1)
+  ;; enables mouse hover support
+  (dap-tooltip-mode 1)
+  ;; use tooltips for mouse hover
+  ;; if it is not enabled `dap-mode' will use the minibuffer.
+  (tooltip-mode 1))
+(use-package! dap-mode
+  :config (me/configure-dap-mode))
 
 (map! :n "gb" #'browse-url)
 (map! :leader
@@ -125,4 +137,6 @@
 (setq display-line-numbers 'relative)
 (setq display-line-numbers-type 'relative)
 (setq display-line-numbers-current-absolute t)
-(global-display-line-numbers-mode t)
+;; (global-display-line-numbers-mode t)
+
+(local-set-key [134217831 102] 'find-file-at-point)

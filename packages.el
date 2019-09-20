@@ -22,3 +22,5 @@
 (package! awesome-tab
   :recipe (:fetcher github
                     :repo "manateelazycat/awesome-tab"))
+;; DAP mode
+(package! dap-mode)
