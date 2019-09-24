@@ -34,7 +34,6 @@
 
        :emacs
        dired            ; making dired pretty [functional]
-       electric          ; smarter, keyword-based electric-indent
        vc                ; version-control and Emacs, sitting in a tree
 
        :term
@@ -45,6 +44,7 @@
 
        :tools
        ansible
+       debugger
        eval              ; run code, run (also, repls)
        flycheck          ; tasing you for every semicolon you forget
        flyspell          ; tasing you for misspelling mispelling
