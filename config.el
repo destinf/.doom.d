@@ -63,17 +63,26 @@
   (setq magit-pre-refresh-hook nil)
   (setq magit-refresh-staus-buffer nil))
 
-(defun me/configure-dap-mode ()
+(defun me/configure-dap ()
   "Configure personal settings for dap-mode"
-  (require 'dap-ruby)
   (dap-mode 1)
   ;; enables mouse hover support
   (dap-tooltip-mode 1)
   ;; use tooltips for mouse hover
   ;; if it is not enabled `dap-mode' will use the minibuffer.
   (tooltip-mode 1))
+
+(use-package! lsp-mode
+  :hook (prog-mode-hook . lsp-deferred)
+  :commands (lsp lsp-deferred))
+
+(use-package! lsp-ui
+  :commands lsp-ui-mode)
+(use-package! company-lsp
+  :commands company-lsp)
 (use-package! dap-mode
-  :config (me/configure-dap-mode))
+  :config (me/configure-dap))
+(use-package! dap-ruby)
 
 (map! :n "gb" #'browse-url)
 (map! :leader
