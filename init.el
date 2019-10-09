@@ -32,7 +32,9 @@
        snippets          ; my elves. They type so I don't have to
 
        :emacs
-       (dired +ranger)   ; making dired pretty [functional]
+       (dired            ; making dired pretty [functional]
+        +ranger
+        +icons)
        vc                ; version-control and Emacs, sitting in a tree
 
        :term
