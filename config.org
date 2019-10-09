@@ -29,6 +29,17 @@ https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
 #+BEGIN_SRC emacs-lisp
 (use-package! evil-string-inflection)
 #+END_SRC
+** Spell Check
+#+BEGIN_SRC emacs-lisp
+(use-package! auto-dictionary)
+(add-hook 'flyspell-mode-hook (lambda () (auto-dictionary-mode 1)))
+#+END_SRC
+** Flycheck
+Disable global flycheck
+#+BEGIN_SRC emacs-lisp
+(after! flycheck
+  (setq-default global-flycheck-mode nil))
+#+END_SRC
 ** Helm Dash
 #+BEGIN_SRC emacs-lisp
 (use-package! helm-dash)
@@ -77,17 +88,15 @@ Indentation
 
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 #+END_SRC
+Escape Keybindings
+#+BEGIN_SRC emacs-lisp
+(setq-default evil-escape-key-sequence "fd")
+#+END_SRC
 
 ** Miscellaneous
 Not really sure where these should go
 #+BEGIN_SRC emacs-lisp
-; https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
 (setq-local imenu-create-index-function #'ggtags-build-imenu-index)
-
-(after! flycheck
-  (setq-default global-flycheck-mode nil)) ; just
-
-;; (setq-default evil-escape-key-sequence "fd")
 
 ;; (setq ivy-re-builders-alist
 ;;       '((counsel-rg . ivy--regex-plus)
@@ -96,7 +105,7 @@ Not really sure where these should go
 ;;         (t . ivy--regex-fuzzy)))
 
 ;; aligns annotation to the right hand side
-(setq company-tooltip-align-annotations t)
+;; (setq company-tooltip-align-annotations t)
 #+END_SRC
 ** Magit
 Optimizations for magit
@@ -127,6 +136,10 @@ Optimizations for magit
 ;; (use-package! dap-mode
 ;;   :config (me/configure-dap))
 ;; (use-package! dap-ruby)
+#+END_SRC
+** Haml Mode
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'auto-mode-alist '("\\.haml\\'" . haml-mode))
 #+END_SRC
 * Key Configuration
 This is my leader config which overrides some of the other leader configs
