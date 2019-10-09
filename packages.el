@@ -23,7 +23,8 @@
   :recipe (:fetcher github
                     :repo "manateelazycat/awesome-tab"))
 ;; DAP mode
-(package! dap-mode)
-(package! lsp-mode)
-(package! lsp-ui)
-(package! company-lsp)
+;; (package! dap-mode)
+;; (package! lsp-mode)
+;; (package! lsp-ui)
+;; (package! company-lsp)
+(package! evil-string-inflection)
