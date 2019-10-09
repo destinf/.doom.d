@@ -3,6 +3,8 @@
 #+STARTUP: hideblocks
 #+PROPERTY: header-args    :results silent :tangle yes
 
+* Ideas and inspiration
+https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
 * Package Configuration
 ** RVM
 #+BEGIN_SRC emacs-lisp
@@ -14,27 +16,26 @@
 ;; (load! "lisp/awesome-tab/awesome-tab")
 ;; (awesome-tab-mode t)
 #+END_SRC
-** Helm Dash
-#+BEGIN_SRC emacs-lisp
-(use-package! helm-dash)
-#+END_SRC
 ** Avy
 #+BEGIN_SRC emacs-lisp
 (after! avy
   (setq avy-all-windows 'all-frames))
 #+END_SRC
-** Org Mode
-#+BEGIN_SRC
-;; (load! "+evil-org")
-#+END_SRC
 ** Coffeescript
 #+BEGIN_SRC emacs-lisp
 (use-package! coffee-mode)
 #+END_SRC
-** Spell Check
+** Evil Mode
 #+BEGIN_SRC emacs-lisp
-(use-package! auto-dictionary)
-(add-hook 'flyspell-mode-hook (lambda () (auto-dictionary-mode 1)))
+(use-package! evil-string-inflection)
+#+END_SRC
+** Helm Dash
+#+BEGIN_SRC emacs-lisp
+(use-package! helm-dash)
+#+END_SRC
+** DISABLED Org Mode
+#+BEGIN_SRC
+;; (load! "+evil-org")
 #+END_SRC
 ** Automatically Create tags
 #+BEGIN_SRC emacs-lisp
