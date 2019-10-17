@@ -158,6 +158,9 @@ in default doom-emacs
       (cond ((featurep! :completion ivy)  #'+ivy/project-search)
             ((featurep! :completion helm) #'+helm/project-search))
 
+      (:prefix ("b" . "buffer")
+        :desc "ibuffer" "i" #'ibuffer)
+
       (:prefix ("j" . "jump")
         :desc "avy-goto-char-2" :nv "c" #'avy-goto-char-2
         :desc "avy-goto-line" :nv "l" #'avy-goto-line
