@@ -141,6 +141,11 @@ Optimizations for magit
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'auto-mode-alist '("\\.haml\\'" . haml-mode))
 #+END_SRC
+** Deadgrep
+Don't use doom's popups
+#+BEGIN_SRC emacs-lisp
+(set-popup-rule! "^\\*deadgrep" :ignore t)
+#+END_SRC
 * Key Configuration
 This is my leader config which overrides some of the other leader configs
 in default doom-emacs
