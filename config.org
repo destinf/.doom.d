@@ -144,7 +144,7 @@ Optimizations for magit
 ** Deadgrep
 Don't use doom's popups
 #+BEGIN_SRC emacs-lisp
-(set-popup-rule! "^\\*deadgrep" :ignore t)
+(set-popup-rule! "^\\*deadgrep" :height 400 :action 'display-buffer-same-window)
 #+END_SRC
 * Key Configuration
 This is my leader config which overrides some of the other leader configs

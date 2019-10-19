@@ -28,3 +28,5 @@
 ;; (package! lsp-ui)
 ;; (package! company-lsp)
 (package! evil-string-inflection)
+;; (package! evil-collection)
+;; (package! evil-magit)
