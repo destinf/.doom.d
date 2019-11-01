@@ -7,10 +7,6 @@
 (package! coffee-mode)
 (package! auto-dictionary)
 (package! yasnippet-snippets)
-(package! emacs-snippets
-  :recipe (:fetcher github
-           :repo "hlissner/emacs-snippets"
-           :files ("*")))
 (package! multiple-cursors)
 (package! git-link)
 (package! ggtags)
@@ -19,9 +15,6 @@
 (package! tide)
 (package! typescript-mode)
 (package! deadgrep)
-(package! awesome-tab
-  :recipe (:fetcher github
-                    :repo "manateelazycat/awesome-tab"))
 ;; DAP mode
 ;; (package! dap-mode)
 ;; (package! lsp-mode)
