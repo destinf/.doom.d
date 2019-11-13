@@ -25,15 +25,16 @@
        workspaces        ; tab emulation, persistence & separate workspaces
 
        :editor
-       (evil +everywhere); come to the dark side, we have cookies
+       ;; (evil +everywhere); come to the dark side, we have cookies
        fold              ; (nigh) universal code folding
+       ;; god
        multiple-cursors  ; editing in many places at once
        rotate-text       ; cycle region at point between text candidates
        snippets          ; my elves. They type so I don't have to
 
        :emacs
        (dired            ; making dired pretty [functional]
-        +ranger
+        ;; +ranger
         +icons)
        vc                ; version-control and Emacs, sitting in a tree
 
@@ -59,7 +60,6 @@
        :lang
        data              ; config/data formats
        emacs-lisp        ; drown in parentheses
-
        javascript        ; all(hope(abandon(ye(who(enter(here))))))
        markdown          ; writing docs for people to ignore
        nix               ; I hereby declare "nix geht mehr!"
@@ -68,6 +68,7 @@
         +ipython         ; ipython support for babel
         +pandoc          ; pandoc integration into org's exporter
         +present)        ; using Emacs for presentations
+       php
        python            ; beautiful is better than ugly
        rest              ; Emacs as a REST client
        ruby              ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}

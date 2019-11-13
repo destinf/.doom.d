@@ -20,6 +20,7 @@
 ;; (package! lsp-mode)
 ;; (package! lsp-ui)
 ;; (package! company-lsp)
-(package! evil-string-inflection)
+;; (package! evil-string-inflection)
 ;; (package! evil-collection)
 ;; (package! evil-magit)
+(package! feature-mode)
