@@ -8,8 +8,8 @@ https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
 * Package Configuration
 ** RVM
 #+BEGIN_SRC emacs-lisp
-(use-package! rvm)
-(rvm-use-default)
+(use-package! rvm
+:config (rvm-use-default))
 #+END_SRC
 ** Awesome-tab
 #+BEGIN_SRC emacs-lisp
@@ -21,7 +21,7 @@ https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
 (after! avy
   (setq avy-all-windows 'all-frames))
 (map!
-"C-:" #'avy-goto-char-timer )
+ "C-:" #'avy-goto-char-timer )
 #+END_SRC
 ** Coffeescript
 #+BEGIN_SRC emacs-lisp
@@ -45,10 +45,6 @@ Disable global flycheck
 ** Helm Dash
 #+BEGIN_SRC emacs-lisp
 (use-package! helm-dash)
-#+END_SRC
-** DISABLED Org Mode
-#+BEGIN_SRC
-;; (load! "+evil-org")
 #+END_SRC
 ** Automatically Create tags
 #+BEGIN_SRC emacs-lisp
@@ -152,11 +148,6 @@ Don't use doom's popups
 (after! deadgrep
   (set-popup-rule! "^\\*deadgrep" :height 400))
 #+END_SRC
-** God Mode
-#+BEGIN_SRC emacs-lisp
-;; (map!
-;; "ESC" #'god-mode-all)
-#+END_SRC
 ** Ivy/Counsel Mode
 #+BEGIN_SRC emacs-lisp
 (after! ivy-mode
@@ -184,7 +175,12 @@ Don't use doom's popups
    "C-c s /" (lambda () (interactive) (+ivy/project-search))
 )
 #+END_SRC
-
+** God Mode
+#+BEGIN_SRC emacs-lisp
+(after! god-mode
+  (map! "<escape>" #'god-mode-all)
+)
+#+END_SRC
 * Key Configuration
 This is my leader config which overrides some of the other leader configs
 in default doom-emacs
@@ -263,7 +259,10 @@ Line Numbering
 (setq display-line-numbers-current-absolute t)
 ;; (global-display-line-numbers-mode t)
 #+END_SRC
-
+Theme
+#+BEGIN_SRC emacs-lisp
+(load-theme 'wombat)
+#+END_SRC
 * Emacs Mode Keybindings
 ** Goto file
 #+BEGIN_SRC emacs-lisp

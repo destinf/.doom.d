@@ -27,7 +27,7 @@
        :editor
        ;; (evil +everywhere); come to the dark side, we have cookies
        fold              ; (nigh) universal code folding
-       ;; god
+       god
        multiple-cursors  ; editing in many places at once
        rotate-text       ; cycle region at point between text candidates
        snippets          ; my elves. They type so I don't have to
@@ -56,8 +56,10 @@
        lsp
        macos             ; MacOS-specific commands
        magit             ; a git porcelain for Emacs
+       make
 
        :lang
+       cc
        data              ; config/data formats
        emacs-lisp        ; drown in parentheses
        javascript        ; all(hope(abandon(ye(who(enter(here))))))
@@ -102,11 +104,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   (quote
-    ("423435c7b0e6c0942f16519fa9e17793da940184a50201a4d932eafe4c94c92d" "2d1fe7c9007a5b76cea4395b0fc664d0c1cfd34bb4f1860300347cdad67fb2f9" "fefab1b6d3366a959c78b4ed154018d48f4ec439ce652f4748ef22945ca7c2d5" "7f74a3b9a1f5e3d31358b48b8f8a1154aab2534fae82c9e918fb389fca776788" "c8f959fb1ea32ddfc0f50db85fea2e7d86b72bb4d106803018be1c3566fd6c72" "f2b83b9388b1a57f6286153130ee704243870d40ae9ec931d0a1798a5a916e76" default)))
+   '("423435c7b0e6c0942f16519fa9e17793da940184a50201a4d932eafe4c94c92d" "2d1fe7c9007a5b76cea4395b0fc664d0c1cfd34bb4f1860300347cdad67fb2f9" "fefab1b6d3366a959c78b4ed154018d48f4ec439ce652f4748ef22945ca7c2d5" "7f74a3b9a1f5e3d31358b48b8f8a1154aab2534fae82c9e918fb389fca776788" "c8f959fb1ea32ddfc0f50db85fea2e7d86b72bb4d106803018be1c3566fd6c72" "f2b83b9388b1a57f6286153130ee704243870d40ae9ec931d0a1798a5a916e76" default))
  '(enh-ruby-indent-level 2)
  '(flycheck-checker-error-threshold 800)
  '(js-indent-level 2)
+ '(json-reformat:indent-width 2)
+ '(org-agenda-files
+   '("~/org/boon/tasks.org" "/Users/destin/org/flexepin.org" "/Users/destin/org/ideas.org" "/Users/destin/org/microservices_flow.org" "/Users/destin/org/notes.org" "/Users/destin/org/seo.org" "/Users/destin/org/todo.org"))
  '(tab-width 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
