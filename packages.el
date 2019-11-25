@@ -24,3 +24,5 @@
 ;; (package! evil-collection)
 ;; (package! evil-magit)
 (package! feature-mode)
+(package! ember-mode)
+(package! easy-kill)

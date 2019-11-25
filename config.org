@@ -9,7 +9,8 @@ https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
 ** RVM
 #+BEGIN_SRC emacs-lisp
 (use-package! rvm
-:config (rvm-use-default))
+  :config (rvm-use-default)
+  :defer-incrementally rspec-mode)
 #+END_SRC
 ** Awesome-tab
 #+BEGIN_SRC emacs-lisp
@@ -25,7 +26,8 @@ https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
 #+END_SRC
 ** Coffeescript
 #+BEGIN_SRC emacs-lisp
-(use-package! coffee-mode)
+(use-package! coffee-mode
+  :defer t)
 #+END_SRC
 ** Evil Mode
 #+BEGIN_SRC emacs-lisp
@@ -33,7 +35,8 @@ https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
 #+END_SRC
 ** Spell Check
 #+BEGIN_SRC emacs-lisp
-(use-package! auto-dictionary)
+(use-package! auto-dictionary
+  :defer-incrementally t)
 (add-hook 'flyspell-mode-hook (lambda () (auto-dictionary-mode 1)))
 #+END_SRC
 ** Flycheck
@@ -44,7 +47,8 @@ Disable global flycheck
 #+END_SRC
 ** Helm Dash
 #+BEGIN_SRC emacs-lisp
-(use-package! helm-dash)
+(use-package! helm-dash
+  :defer-incrementally t)
 #+END_SRC
 ** Automatically Create tags
 #+BEGIN_SRC emacs-lisp
@@ -111,6 +115,8 @@ Optimizations for magit
 (after! magit
   (setq magit-pre-refresh-hook nil)
   (setq magit-refresh-staus-buffer nil))
+(map!
+ "C-c v b" #'magit-branch-or-checkout)
 #+END_SRC
 ** DISABLED LSP-mode
 #+BEGIN_SRC emacs-lisp
@@ -146,7 +152,7 @@ Don't use doom's popups
  "C-c s ;" #'deadgrep
  "<f5>" #'deadgrep)
 (after! deadgrep
-  (set-popup-rule! "^\\*deadgrep" :height 400))
+  (set-popup-rule! "^\\*deadgrep" :height 200))
 #+END_SRC
 ** Ivy/Counsel Mode
 #+BEGIN_SRC emacs-lisp
@@ -181,6 +187,21 @@ Don't use doom's popups
   (map! "<escape>" #'god-mode-all)
 )
 #+END_SRC
+** Browser (EWW mode)
+Hotkey for Browser
+#+BEGIN_SRC emacs-lisp
+(map!
+ "C-c d i" #'eww)
+#+END_SRC
+** Easy Kill
+#+BEGIN_SRC emacs-lisp
+(use-package! easy-kill
+:defer t
+:config
+(global-set-key [remap kill-ring-save] #'easy-kill)
+(global-set-key [remap mark-sexp] #'easy-mark))
+#+END_SRC
+
 * Key Configuration
 This is my leader config which overrides some of the other leader configs
 in default doom-emacs
@@ -262,6 +283,14 @@ Line Numbering
 Theme
 #+BEGIN_SRC emacs-lisp
 (load-theme 'wombat)
+#+END_SRC
+Window Configuration
+#+BEGIN_SRC emacs-lisp
+(map!
+ "C-x &" #'shrink-window
+ "C-c w M" #'maximize-window
+ "C-c w m" #'minimize-window
+)
 #+END_SRC
 * Emacs Mode Keybindings
 ** Goto file
