@@ -202,65 +202,73 @@ Hotkey for Browser
 (global-set-key [remap mark-sexp] #'easy-mark))
 #+END_SRC
 
+** Pretty Mode
+#+BEGIN_SRC emacs-lisp
+(use-package! pretty-mode
+  :defer t
+  :config
+  (global-prettify-symbols-mode 1))
+#+END_SRC
+
 * Key Configuration
 This is my leader config which overrides some of the other leader configs
 in default doom-emacs
 #+BEGIN_SRC emacs-lisp
-;; (map! :n "gb" #'browse-url)
-;; (map! :leader
-;;       :desc "Eval" ":" #'eldoc-eval-expression
-;;       :desc "M-x" "SPC" #'execute-extended-command
-;;       :desc "Search project" "/"
-;;       (cond ((featurep! :completion ivy)  #'+ivy/project-search)
-;;             ((featurep! :completion helm) #'+helm/project-search))
+(map! :n "gb" #'browse-url)
+(map! :leader
+      :desc "Eval" ":" #'eldoc-eval-expression
+      :desc "M-x" "SPC" #'execute-extended-command
+      :desc "Search project" "/"
+      (cond ((featurep! :completion ivy)  #'+ivy/project-search)
+            ((featurep! :completion helm) #'+helm/project-search))
 
-;;       (:prefix ("b" . "buffer")
-;;         :desc "ibuffer" "i" #'ibuffer)
+      (:prefix ("b" . "buffer")
+        :desc "ibuffer" "i" #'ibuffer)
 
-;;       (:prefix ("j" . "jump")
-;;         :desc "avy-goto-char-2" :nv "c" #'avy-goto-char-2
-;;         :desc "avy-goto-line" :nv "l" #'avy-goto-line
-;;         :desc "avy-goto-char-timer" :nv "j" #'avy-goto-char-timer)
+      (:prefix ("j" . "jump")
+        :desc "avy-goto-char-2" :nv "c" #'avy-goto-char-2
+        :desc "avy-goto-line" :nv "l" #'avy-goto-line
+        :desc "avy-goto-char-timer" :nv "j" #'avy-goto-char-timer)
 
-;;       (:prefix ("y" . "snippets")
-;;           :desc "New snippet"                "n" #'yas-new-snippet
-;;           :desc "Insert snippet"             "i" #'yas-insert-snippet
-;;           :desc "Jump to mode snippet"       "/" #'yas-visit-snippet-file
-;;           :desc "Jump to snippet"            "s" #'+snippets/find-file
-;;           :desc "Browse snippets"            "S" #'+snippets/browse
-;;           :desc "Reload snippets"            "r" #'yas-reload-all)
+      (:prefix ("y" . "snippets")
+        :desc "New snippet"                "n" #'yas-new-snippet
+        :desc "Insert snippet"             "i" #'yas-insert-snippet
+        :desc "Jump to mode snippet"       "/" #'yas-visit-snippet-file
+        :desc "Jump to snippet"            "s" #'+snippets/find-file
+        :desc "Browse snippets"            "S" #'+snippets/browse
+        :desc "Reload snippets"            "r" #'yas-reload-all)
 
-;;       (:prefix ("r" . "resume")
-;;         :desc "Resume Ivy"                   "l" #'ivy-resume)
-;;       (:prefix ("s" . "search")
-;;         "/" nil
-;;         "n" nil
-;;         "r" nil
-;;         "s" nil
-;;         "S" nil
-;;         :desc "Jump to symbol across buffers" "I" #'imenu-anywhere
-;;         :desc "Search buffer"                 "b" #'swiper
-;;         :desc "Search current directory"      "d"
-;;         (cond ((featurep! :completion ivy)  #'+ivy/project-search-from-cwd)
-;;               ((featurep! :completion helm) #'+helm/project-search-from-cwd))
-;;         :desc "Jump to symbol"                "i" #'imenu
-;;         :desc "Jump to link"                  "l" #'ace-link
-;;         :desc "Look up online"                "o" #'+lookup/online-select
-;;         :desc "Search project"                "p"
-;;         (cond ((featurep! :completion ivy)  #'+ivy/project-search)
-;;               ((featurep! :completion helm) #'+helm/project-search))
-;;         :desc "deadgrep"                      ";" #'deadgrep
-;;         )
-;;       (:prefix ("p")
-;;         :desc "Find file in project" "f" #'projectile-find-file)
-;;       (:prefix ("f")
-;;         :desc "Toggle Treemacs" "t" #'treemacs)
-;;       )
-;; (map!
-;;  ;; Easier window navigation
-;;  :n "-"     #'dired-jump
-;;  :n "C-s"   #'counsel-grep-or-swiper
-;; )
+      (:prefix ("r" . "resume")
+        :desc "Resume Ivy"                   "l" #'ivy-resume)
+      (:prefix ("s" . "search")
+        "/" nil
+        "n" nil
+        "r" nil
+        "s" nil
+        "S" nil
+        :desc "Jump to symbol across buffers" "I" #'imenu-anywhere
+        :desc "Search buffer"                 "b" #'swiper
+        :desc "Search current directory"      "d"
+        (cond ((featurep! :completion ivy)  #'+ivy/project-search-from-cwd)
+              ((featurep! :completion helm) #'+helm/project-search-from-cwd))
+        :desc "Jump to symbol"                "i" #'imenu
+        :desc "Jump to link"                  "l" #'ace-link
+        :desc "Look up online"                "o" #'+lookup/online-select
+        :desc "Search project"                "p"
+        (cond ((featurep! :completion ivy)  #'+ivy/project-search)
+              ((featurep! :completion helm) #'+helm/project-search))
+        :desc "deadgrep"                      ";" #'deadgrep
+        )
+      (:prefix ("p")
+        :desc "Find file in project" "f" #'projectile-find-file)
+      (:prefix ("f")
+        :desc "Toggle Treemacs" "t" #'treemacs)
+      )
+(map!
+ ;; Easier window navigation
+ :n "-"     #'dired-jump
+ :n "C-s"   #'counsel-grep-or-swiper
+ )
 #+END_SRC
 #+BEGIN_SRC emacs-lisp
 (setq mac-option-modifier 'meta)
@@ -282,7 +290,7 @@ Line Numbering
 #+END_SRC
 Theme
 #+BEGIN_SRC emacs-lisp
-(load-theme 'wombat)
+(load-theme 'tsdh-dark)
 #+END_SRC
 Window Configuration
 #+BEGIN_SRC emacs-lisp
@@ -290,7 +298,7 @@ Window Configuration
  "C-x &" #'shrink-window
  "C-c w M" #'maximize-window
  "C-c w m" #'minimize-window
-)
+ )
 #+END_SRC
 * Emacs Mode Keybindings
 ** Goto file

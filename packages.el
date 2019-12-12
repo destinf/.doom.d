@@ -26,3 +26,4 @@
 (package! feature-mode)
 (package! ember-mode)
 (package! easy-kill)
+(package! pretty-mode)
