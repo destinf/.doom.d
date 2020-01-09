@@ -210,6 +210,16 @@ Hotkey for Browser
   (global-prettify-symbols-mode 1))
 #+END_SRC
 
+* Custom Confiration
+** Yank filename relative to project
+#+BEGIN_SRC emacs-lisp
+(defun yank-buffer-filename-relative ()
+  "Copy the current buffer's path to the kill ring."
+  (interactive)
+  (if-let* ((filename (or buffer-file-name (bound-and-true-p list-buffers-directory))))
+    (message (kill-new (abbreviate-file-name (file-relative-name filename (projectile-project-root)))))
+    (error "Couldn't find filename in current buffer")))
+#+END_SRC
 * Key Configuration
 This is my leader config which overrides some of the other leader configs
 in default doom-emacs
@@ -262,13 +272,16 @@ in default doom-emacs
       (:prefix ("p")
         :desc "Find file in project" "f" #'projectile-find-file)
       (:prefix ("f")
-        :desc "Toggle Treemacs" "t" #'treemacs)
-      )
+        :desc "Toggle Treemacs" "t" #'treemacs
+        :nv "y" nil
+        (:prefix ("y")
+          :desc "Yank absolute filename" "y" #'+default/yank-buffer-filename
+          :desc "Yank relative filename" "Y" #'yank-buffer-filename-relative))
+          )
 (map!
  ;; Easier window navigation
  :n "-"     #'dired-jump
- :n "C-s"   #'counsel-grep-or-swiper
- )
+ :n "C-s"   #'counsel-grep-or-swiper)
 #+END_SRC
 #+BEGIN_SRC emacs-lisp
 (setq mac-option-modifier 'meta)
@@ -290,7 +303,7 @@ Line Numbering
 #+END_SRC
 Theme
 #+BEGIN_SRC emacs-lisp
-(load-theme 'tsdh-dark)
+(load-theme 'doom-dracula)
 #+END_SRC
 Window Configuration
 #+BEGIN_SRC emacs-lisp
