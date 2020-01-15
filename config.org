@@ -231,7 +231,7 @@ in default doom-emacs
 #+BEGIN_SRC emacs-lisp
 (map! :n "gb" #'browse-url)
 (map! :leader
-      :desc "Eval" ":" #'eldoc-eval-expression
+      ;; :desc "Eval" ":" #'eldoc-eval-expression
       :desc "M-x" "SPC" #'execute-extended-command
       :desc "Search project" "/"
       (cond ((featurep! :completion ivy)  #'+ivy/project-search)
@@ -284,21 +284,25 @@ in default doom-emacs
           :desc "Yank relative filename" "Y" #'yank-buffer-filename-relative))
           )
 (map!
- ;; Easier window navigation
- :n "-"     #'dired-jump
- :n "C-s"   #'counsel-grep-or-swiper)
+  ;; Easier window navigation
+  :n "-"     #'dired-jump
+  :n "C-s"   #'counsel-grep-or-swiper
+  (:when (featurep! :ui tabs)
+      :n "gt" #'centaur-tabs-forward
+      :n "gT" #'centaur-tabs-backward)
+)
 #+END_SRC
 #+BEGIN_SRC emacs-lisp
 (setq mac-option-modifier 'meta)
 #+END_SRC
 
 * Editor Configuration
-Indents
+** Indents
 #+BEGIN_SRC emacs-lisp
 (setq-default tab-width 2)
 ;; (setq-default evil-shift-width 2)
 #+END_SRC
-Line Numbering
+** Line Numbering
 #+BEGIN_SRC emacs-lisp
 ;; Set line numbers to be relative
 (setq display-line-numbers 'relative)
@@ -306,11 +310,11 @@ Line Numbering
 (setq display-line-numbers-current-absolute t)
 ;; (global-display-line-numbers-mode t)
 #+END_SRC
-Theme
+** Theme
 #+BEGIN_SRC emacs-lisp
-(load-theme 'doom-dracula)
+;; (load-theme 'doom-dracula)
 #+END_SRC
-Window Configuration
+** Window Configuration
 #+BEGIN_SRC emacs-lisp
 (map!
  "C-x &" #'shrink-window
