@@ -220,6 +220,11 @@ Hotkey for Browser
     (message (kill-new (abbreviate-file-name (file-relative-name filename (projectile-project-root)))))
     (error "Couldn't find filename in current buffer")))
 #+END_SRC
+** Add an exec path
+#+BEGIN_SRC emacs-lisp
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setq exec-path (append exec-path '("/usr/local/bin")))
+#+END_SRC
 * Key Configuration
 This is my leader config which overrides some of the other leader configs
 in default doom-emacs
