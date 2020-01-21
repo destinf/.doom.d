@@ -27,3 +27,4 @@
 (package! ember-mode)
 (package! easy-kill)
 (package! pretty-mode)
+(package! try)

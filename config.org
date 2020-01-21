@@ -33,6 +33,13 @@ https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
 #+BEGIN_SRC emacs-lisp
 ;; (use-package! evil-string-inflection)
 #+END_SRC
+** Evil Mode Add-ons
+*** Lispy
+** Try
+#+BEGIN_SRC emacs-lisp
+(use-package! try
+  :defer t)
+#+END_SRC
 ** Spell Check
 #+BEGIN_SRC emacs-lisp
 (use-package! auto-dictionary
@@ -211,7 +218,7 @@ Hotkey for Browser
 #+END_SRC
 
 * Custom Confiration
-** Yank filename relative to project
+** Yank filename  relative to project
 #+BEGIN_SRC emacs-lisp
 (defun yank-buffer-filename-relative ()
   "Copy the current buffer's path to the kill ring."
@@ -226,10 +233,14 @@ Hotkey for Browser
 (setq exec-path (append exec-path '("/usr/local/bin")))
 #+END_SRC
 * Key Configuration
-This is my leader config which overrides some of the other leader configs
+**This is my leader config which overrides some of the other leader configs
 in default doom-emacs
 #+BEGIN_SRC emacs-lisp
-(map! :n "gb" #'browse-url)
+(map! :n "gb" #'browse-url
+      :mnoeivg "C-n" #'next-line
+      :mnoeivg "C-p" #'previous-line
+      )
+
 (map! :leader
       ;; :desc "Eval" ":" #'eldoc-eval-expression
       :desc "M-x" "SPC" #'execute-extended-command
@@ -291,8 +302,6 @@ in default doom-emacs
       :n "gt" #'centaur-tabs-forward
       :n "gT" #'centaur-tabs-backward)
 )
-#+END_SRC
-#+BEGIN_SRC emacs-lisp
 (setq mac-option-modifier 'meta)
 #+END_SRC
 
@@ -318,8 +327,8 @@ in default doom-emacs
 #+BEGIN_SRC emacs-lisp
 (map!
  "C-x &" #'shrink-window
- "C-c w M" #'maximize-window
- "C-c w m" #'minimize-window
+ "C-c w m" #'maximize-window
+ "C-c w M" #'minimize-window
  )
 #+END_SRC
 * Emacs Mode Keybindings
