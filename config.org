@@ -70,11 +70,26 @@ Disable global flycheck
 #+BEGIN_SRC emacs-lisp
 (setq which-key-idle-delay 0.2)
 #+END_SRC
-** Ruby Mode
+** Ruby
+*** Change definition of word
 #+BEGIN_SRC emacs-lisp
-(add-hook 'enh-ruby-mode-hook '(lambda () (modify-syntax-entry ?_ "w")))
-(add-hook 'enh-ruby-mode-hook 'robe-mode)
-(add-hook 'enh-ruby-mode-hook 'yard-mode)
+(add-hook! enh-ruby-mode '(lambda () (modify-syntax-entry ?_ "w")))
+#+END_SRC
+*** Robe Mode Hook
+#+BEGIN_SRC emacs-lisp
+(add-hook! enh-ruby-mode 'robe-mode)
+#+END_SRC
+*** Yard Mode Hook
+#+BEGIN_SRC emacs-lisp
+(add-hook! enh-ruby-mode 'yard-mode)
+#+END_SRC
+*** Rinari
+#+BEGIN_SRC emacs-lisp
+(use-package! rinari
+  :defer t
+  :hook (enh-ruby-mode . rinari-minor-mode)
+  ;; :config (add-hook 'enh-ruby-mode-hook 'rinari-minor-mode)
+  )
 #+END_SRC
 ** Javascript Mode
 Indentation
@@ -215,6 +230,13 @@ Hotkey for Browser
   :defer t
   :config
   (global-prettify-symbols-mode 1))
+#+END_SRC
+** Org Jira
+#+BEGIN_SRC emacs-lisp
+(use-package! org-jira
+  :defer t
+  :config
+  (setq jiralib-url "https://financeit.atlassian.net"))
 #+END_SRC
 
 * Custom Confiration

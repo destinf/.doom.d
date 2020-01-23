@@ -28,3 +28,5 @@
 (package! easy-kill)
 (package! pretty-mode)
 (package! try)
+(package! org-jira)
+(package! rinari)
