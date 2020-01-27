@@ -30,3 +30,5 @@
 (package! try)
 (package! org-jira)
 (package! rinari)
+(package! web-beautify)
+(package! json-mode)

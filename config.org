@@ -238,6 +238,16 @@ Hotkey for Browser
   :config
   (setq jiralib-url "https://financeit.atlassian.net"))
 #+END_SRC
+** Web-beautify
+#+BEGIN_SRC emacs-lisp
+(use-package! web-beautify
+  :defer t)
+#+END_SRC
+** JSON Mode
+#+BEGIN_SRC emacs-lisp
+(use-package! json-mode
+  :defer t)
+#+END_SRC
 
 * Custom Confiration
 ** Yank filename  relative to project
