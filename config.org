@@ -217,19 +217,20 @@ Hotkey for Browser
 #+END_SRC
 ** Easy Kill
 #+BEGIN_SRC emacs-lisp
-(use-package! easy-kill
-:defer t
-:config
-(global-set-key [remap kill-ring-save] #'easy-kill)
-(global-set-key [remap mark-sexp] #'easy-mark))
+(if (not (featurep 'evil))
+  (use-package! easy-kill
+    :defer t
+    :config
+    (global-set-key [remap kill-ring-save] #'easy-kill)
+    (global-set-key [remap mark-sexp] #'easy-mark)))
 #+END_SRC
-
 ** Pretty Mode
 #+BEGIN_SRC emacs-lisp
 (use-package! pretty-mode
   :defer t
   :config
-  (global-prettify-symbols-mode 1))
+  (global-prettify-symbols-mode 1)
+  (global-pretty-mode nil))
 #+END_SRC
 ** Org Jira
 #+BEGIN_SRC emacs-lisp
@@ -246,6 +247,12 @@ Hotkey for Browser
 ** JSON Mode
 #+BEGIN_SRC emacs-lisp
 (use-package! json-mode
+  :defer t)
+#+END_SRC
+** LSP Mode
+*** LSP-Treemacs
+#+BEGIN_SRC emacs-lisp
+(use-package! lsp-treemacs
   :defer t)
 #+END_SRC
 
