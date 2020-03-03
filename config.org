@@ -20,7 +20,8 @@ https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
 ** Avy
 #+BEGIN_SRC emacs-lisp
 (after! avy
-  (setq avy-all-windows 'all-frames))
+  (setq avy-all-windows 'all-frames)
+  (setq avy-timeout-seconds 0.2))
 (after! avy
   (map!
     "C-:" #'avy-goto-char-timer))
