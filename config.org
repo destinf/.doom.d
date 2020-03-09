@@ -118,14 +118,17 @@ Indentation
 
 ** Typescript Mode
 #+BEGIN_SRC emacs-lisp
+(use-package! typescript-mode
+:mode ("\\.ts\\'" . typescript-mode)
+  )
+#+END_SRC
+#+BEGIN_SRC emacs-lisp
 (defun setup-tide-mode ()
-  (interactive)
   (tide-setup)
   (flycheck-mode +1)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1))
-
 ;; formats the buffer before saving
 (add-hook 'before-save-hook 'tide-format-before-save)
 
@@ -411,6 +414,10 @@ in default doom-emacs
  "C-c w m" #'maximize-window
  "C-c w M" #'minimize-window
  )
+#+END_SRC
+** Font Size
+#+BEGIN_SRC emacs-lisp
+(set-face-attribute 'default nil :height 140) ; The value is in 1/10pt, so 100 will give you 10pt, etc.
 #+END_SRC
 * Emacs Mode Keybindings
 ** Goto file
