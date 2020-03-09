@@ -76,6 +76,10 @@ Disable global flycheck
 (use-package! helm-dash
   :defer-incrementally t)
 #+END_SRC
+** DISABLED Org Mode
+#+BEGIN_SRC
+;; (load! "+evil-org")
+#+END_SRC
 ** Automatically Create tags
 #+BEGIN_SRC emacs-lisp
 (defadvice xref-find-definitions (before c-tag-file activate)
@@ -203,6 +207,11 @@ Don't use doom's popups
 (after! deadgrep
   (set-popup-rule! "^\\*deadgrep" :height 200))
 #+END_SRC
+** God Mode
+#+BEGIN_SRC emacs-lisp
+;; (map!
+;; "ESC" #'god-mode-all)
+#+END_SRC
 ** Ivy/Counsel Mode
 #+BEGIN_SRC emacs-lisp
 (after! ivy-mode
@@ -230,12 +239,6 @@ Don't use doom's popups
    "C-c s /" (lambda () (interactive) (+ivy/project-search))
 )
 #+END_SRC
-** God Mode
-#+BEGIN_SRC emacs-lisp
-(after! god-mode
-  (map! "<escape>" #'god-mode-all)
-)
-#+END_SRC
 ** Browser (EWW mode)
 Hotkey for Browser
 #+BEGIN_SRC emacs-lisp
@@ -250,14 +253,6 @@ Hotkey for Browser
     :config
     (global-set-key [remap kill-ring-save] #'easy-kill)
     (global-set-key [remap mark-sexp] #'easy-mark)))
-#+END_SRC
-** Pretty Mode
-#+BEGIN_SRC emacs-lisp
-(use-package! pretty-mode
-  :defer t
-  :config
-  (global-prettify-symbols-mode 1)
-  (global-pretty-mode nil))
 #+END_SRC
 ** Org Jira
 #+BEGIN_SRC emacs-lisp
@@ -314,7 +309,7 @@ scratch because it's just not working for us
   (setq company-tooltip-align-annotations 't)          ; align annotations to the right tooltip border
   (setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
   (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
-  (global-set-key (kbd "C-c /") 'company-files)        ; Force complete file names on "C-c /" key)
+)
 #+END_SRC
 *** company-web
 #+BEGIN_SRC emacs-lisp
