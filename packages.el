@@ -65,3 +65,9 @@
   :pin "831371b1d418087da242ccb5cbe16a1e5ce6f5ca")
 (package! company-lsp
   :pin "f921ffa0cdc542c21dc3dd85f2c93df4288e83bd")
+
+;; TODO Pin this package
+(package! flymake-ruby)
+
+;; TODO Pin this package
+;; (package! company-web)

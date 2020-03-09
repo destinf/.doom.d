@@ -110,6 +110,11 @@ Disable global flycheck
   ;; :config (add-hook 'enh-ruby-mode-hook 'rinari-minor-mode)
   )
 #+END_SRC
+*** Flymake Ruby
+#+BEGIN_SRC emacs-lisp
+(use-package! flymake-ruby
+  :hook (ruby-mode-hook . flymake-ruby-load))
+#+END_SRC
 ** Javascript Mode
 Indentation
 #+BEGIN_SRC emacs-lisp
@@ -287,6 +292,13 @@ scratch because it's just not working for us
   (setq company-tooltip-limit 10)
   (map! :ni "C-SPC" #'company-complete)
   ;; :hook (after-init-hook . global-company-mode)
+  ;; (setq company-minimum-prefix-length 0)            ; WARNING, probably you will get perfomance issue if min len is 0!
+  (setq company-tooltip-limit 20)                      ; bigger popup window
+  (setq company-tooltip-align-annotations 't)          ; align annotations to the right tooltip border
+  (setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
+  (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
+  (global-set-key (kbd "C-c /") 'company-files)        ; Force complete file names on "C-c /" key
+  (push 'company-robe company-backends)
   )
 #+END_SRC
 *** company-lsp
@@ -294,13 +306,30 @@ scratch because it's just not working for us
 (use-package! company-lsp
   :defer t
   :config
-  (push 'company-lsp company-backends))
+  (push 'company-lsp company-backends)
+  (push 'company-robe company-backends)
+  (push 'company-web company-backends)
+  ;; (setq company-minimum-prefix-length 0)            ; WARNING, probably you will get perfomance issue if min len is 0!
+  (setq company-tooltip-limit 20)                      ; bigger popup window
+  (setq company-tooltip-align-annotations 't)          ; align annotations to the right tooltip border
+  (setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
+  (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
+  (global-set-key (kbd "C-c /") 'company-files)        ; Force complete file names on "C-c /" key)
+#+END_SRC
+*** company-web
+#+BEGIN_SRC emacs-lisp
+;; (use-package! company-web
+;;   :config
+;;     (push 'company-web-html company-backends)
+;;     (push 'company-web-jade company-backends)
+;;     (push 'company-web-slim company-backends))
 #+END_SRC
 ** Slim Mode
 Slim mode is used for haml-like formatting
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'auto-mode-alist '("\\.emblem\\'" . slim-mode))
 #+END_SRC
+
 * Custom Configuration
 ** Yank filename  relative to project
 #+BEGIN_SRC emacs-lisp

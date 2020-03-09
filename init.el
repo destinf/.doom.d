@@ -72,8 +72,8 @@
 
        :term
        ;;eshell            ; a consistent, cross-platform shell (WIP)
-       shell             ; a terminal REPL for Emacs
-       term              ; terminals in Emacs
+       ;; shell             ; a terminal REPL for Emacs
+       ;; term              ; terminals in Emacs
        vterm             ; another terminals in Emacs
 
        :checkers
@@ -82,10 +82,10 @@
        grammar           ; tasing grammar mistake every you make
 
        :tools
-       ansible
+       ;; ansible
        ;;debugger          ; FIXME stepping through code, to help you add bugs
        ;;direnv
-       docker
+       ;; docker
        editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
        (eval +overlay)     ; run code, run (also, repls)
