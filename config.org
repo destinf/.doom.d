@@ -102,6 +102,13 @@ Disable global flycheck
 #+BEGIN_SRC emacs-lisp
 (add-hook! enh-ruby-mode 'robe-mode)
 #+END_SRC
+*** Ruby Indent Hook
+#+BEGIN_SRC emacs-lisp
+(defun me/configure-ruby ()
+  (enh-ruby-indent-level 2)
+  )
+(add-hook! enh-ruby-mode 'me/configure-ruby)
+#+END_SRC
 *** Yard Mode Hook
 #+BEGIN_SRC emacs-lisp
 (add-hook! enh-ruby-mode 'yard-mode)
