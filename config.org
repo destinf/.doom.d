@@ -333,7 +333,7 @@ Slim mode is used for haml-like formatting
 #+END_SRC
 
 * Custom Configuration
-** Yank filename  relative to project
+** Yank filename relative to project
 #+BEGIN_SRC emacs-lisp
 (defun yank-buffer-filename-relative ()
   "Copy the current buffer's path to the kill ring."
