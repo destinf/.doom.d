@@ -1,7 +1,7 @@
 #+TITLE: config
 #+OPTIONS: toc:4 h:4
 #+STARTUP: hideblocks
-#+PROPERTY: header-args    :results silent :tangle yes
+#+PROPERTY: header-args :results silent :tangle yes
 
 * Ideas and inspiration
 https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
@@ -292,7 +292,11 @@ scratch because it's just not working for us
   :config
   (global-company-mode)
   (setq company-tooltip-limit 10)
-  (map! :ni "C-SPC" #'company-complete)
+  (map! :ni
+    "C-SPC" #'company-complete
+    "M-n" #'company-complete
+    "M-p" #'company-complete
+  )
   ;; :hook (after-init-hook . global-company-mode)
   ;; (setq company-minimum-prefix-length 0)            ; WARNING, probably you will get perfomance issue if min len is 0!
   (setq company-tooltip-limit 20)                      ; bigger popup window
@@ -454,6 +458,11 @@ in default doom-emacs
 ** Goto file
 #+BEGIN_SRC emacs-lisp
 (local-set-key [134217831 102] 'find-file-at-point)
+#+END_SRC
+** Font
+#+BEGIN_SRC emacs-lisp
+(setq doom-font (font-spec :family "Monaco" :size 18 :weight 'semi-light)
+      doom-variable-pitch-font (font-spec :family "Monaco" :size 13))
 #+END_SRC
 ** https://github.com/UndeadKernel/emacs_doom_private/blob/master/%2Bbindings.el
 #+BEGIN_SRC emacs-lisp
@@ -628,4 +637,20 @@ in default doom-emacs
 ;;      "TAB"     #'+eshell/pcomplete
 ;;      [tab]     #'+eshell/pcomplete)))
 ;; (add-hook 'eshell-first-time-mode-hook #'+boy|setup-eshell-bindings)
+#+END_SRC
+
+* NOTES
+:properties:
+:header-args: :tangle no
+:end:
+** Error message: "Could not find package X in recipe repositories"
+*** https://github.com/hlissner/doom-emacs/issues/2802
+** #+BEGIN_SRC sh
+# Update MELPA
+cd ~/.emacs.d/.local/straight/repos/melpa
+git pull
+
+# Clear straight's cache
+rm -f ~/.emacs.d/.local/straight/build-cache.el
+doom sync
 #+END_SRC
