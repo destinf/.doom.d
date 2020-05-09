@@ -457,19 +457,16 @@ in default doom-emacs
  "C-c w M" #'minimize-window
  )
 #+END_SRC
-** Font Size
+** Font
 #+BEGIN_SRC emacs-lisp
-(set-face-attribute 'default nil :height 140) ; The value is in 1/10pt, so 100 will give you 10pt, etc.
+  (setq doom-font (font-spec :family "Monaco" :size 18 :weight 'semi-light)
+    doom-variable-pitch-font (font-spec :family "Monaco" :size 13))
 #+END_SRC
 * Emacs Mode Keybindings
 ** Goto file
 #+BEGIN_SRC emacs-lisp
-(local-set-key [134217831 102] 'find-file-at-point)
-#+END_SRC
-** Font
-#+BEGIN_SRC emacs-lisp
-(setq doom-font (font-spec :family "Monaco" :size 18 :weight 'semi-light)
-      doom-variable-pitch-font (font-spec :family "Monaco" :size 13))
+(unless (featurep 'evil)
+  (local-set-key [134217831 102] 'find-file-at-point))
 #+END_SRC
 ** https://github.com/UndeadKernel/emacs_doom_private/blob/master/%2Bbindings.el
 #+BEGIN_SRC emacs-lisp
