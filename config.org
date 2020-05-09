@@ -24,7 +24,7 @@ https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
 #+BEGIN_SRC emacs-lisp
 (after! avy
   (setq avy-all-windows 'all-frames)
-  (setq avy-timeout-seconds 0.2))
+  (setq avy-timeout-seconds 10))
 (after! avy
   (map!
     "C-:" #'avy-goto-char-timer))
@@ -139,7 +139,6 @@ Indentation
 #+BEGIN_SRC emacs-lisp
 (add-hook 'js-mode-hook (lambda() (setq js-indent-level 2)))`
 #+END_SRC
-
 ** Typescript Mode
 #+BEGIN_SRC emacs-lisp
 (use-package! typescript-mode
