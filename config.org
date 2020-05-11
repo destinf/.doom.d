@@ -447,7 +447,7 @@ in default doom-emacs
 #+END_SRC
 ** Theme
 #+BEGIN_SRC emacs-lisp
-;; (load-theme 'doom-dracula)
+(load-theme 'doom-city-lights t)
 #+END_SRC
 ** Window Configuration
 #+BEGIN_SRC emacs-lisp
@@ -459,8 +459,8 @@ in default doom-emacs
 #+END_SRC
 ** Font
 #+BEGIN_SRC emacs-lisp
-  (setq doom-font (font-spec :family "Monaco" :size 18 :weight 'semi-light)
-    doom-variable-pitch-font (font-spec :family "Monaco" :size 13))
+  (setq doom-font (font-spec :family "Monospace" :size 18 :weight 'semi-light)
+    doom-variable-pitch-font (font-spec :family "Monospace" :size 13))
 #+END_SRC
 * Emacs Mode Keybindings
 ** Goto file
