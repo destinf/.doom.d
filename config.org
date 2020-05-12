@@ -447,7 +447,9 @@ in default doom-emacs
 #+END_SRC
 ** Theme
 #+BEGIN_SRC emacs-lisp
-(load-theme 'doom-city-lights t)
+(if (display-graphic-p)
+  (load-theme 'doom-dracula t)
+  (load-theme 'wheatgrass t))
 #+END_SRC
 ** Window Configuration
 #+BEGIN_SRC emacs-lisp
@@ -459,8 +461,15 @@ in default doom-emacs
 #+END_SRC
 ** Font
 #+BEGIN_SRC emacs-lisp
-  (setq doom-font (font-spec :family "Monospace" :size 18 :weight 'semi-light)
-    doom-variable-pitch-font (font-spec :family "Monospace" :size 13))
+  (setq doom-font (font-spec :family "SauceCodePro Nerd Font Mono" :size 18 :weight 'semi-light)
+    doom-variable-pitch-font (font-spec :family "SauceCodePro Nerd Font Mono" :size 13))
+#+END_SRC
+** Menu Bar
+Hide the menu bar if it isn't hidden
+#+BEGIN_SRC elisp
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
 #+END_SRC
 * Emacs Mode Keybindings
 ** Goto file
