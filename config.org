@@ -62,17 +62,11 @@ We want to use highlight symbol when we move using * or #
 (use-package! try
   :defer t)
 #+END_SRC
-** Spell Check
-#+BEGIN_SRC emacs-lisp
-(use-package! auto-dictionary
-  :defer-incrementally t)
-(add-hook 'flyspell-mode-hook (lambda () (auto-dictionary-mode 1)))
-#+END_SRC
 ** Flycheck
 Disable global flycheck
 #+BEGIN_SRC emacs-lisp
-(after! flycheck
-  (setq-default global-flycheck-mode nil))
+;; (after! flycheck
+;;   (setq-default global-flycheck-mode nil))
 #+END_SRC
 ** Helm Dash
 #+BEGIN_SRC emacs-lisp
