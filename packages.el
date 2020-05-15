@@ -32,16 +32,16 @@
 (package! rinari)
 (package! web-beautify)
 (package! json-mode)
-(package! lsp-treemacs)
+;; (package! lsp-treemacs)
 ;; (package! highlight-symbol
 ;; :pin "7a789c779648c55b16e43278e51be5898c121b3a")
 
 ;; Completion
-(package! company)
-(package! company-lsp)
+;; (package! company)
+;; (package! company-lsp)
 
 ;; TODO Pin this package
-(package! flymake-ruby)
+;; (package! flymake-ruby)
 
 ;; TODO Pin this package
 ;; (package! company-web)

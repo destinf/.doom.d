@@ -126,8 +126,8 @@ Disable global flycheck
 #+END_SRC
 *** Flymake Ruby
 #+BEGIN_SRC emacs-lisp
-(use-package! flymake-ruby
-  :hook (ruby-mode-hook . flymake-ruby-load))
+;; (use-package! flymake-ruby
+;;   :hook (ruby-mode-hook . flymake-ruby-load))
 #+END_SRC
 *** Rspec-mode
 This package is already included in doom emacs. However we want to enable Spring
@@ -179,11 +179,11 @@ Not really sure where these should go
 ** Magit
 Optimizations for magit
 #+BEGIN_SRC emacs-lisp
-(after! magit
-  (setq magit-pre-refresh-hook nil)
-  (setq magit-refresh-staus-buffer nil))
-(map!
- "C-c v b" #'magit-branch-or-checkout)
+;; (after! magit
+;;   (setq magit-pre-refresh-hook nil)
+;;   (setq magit-refresh-staus-buffer nil))
+;; (map!
+;;  "C-c v b" #'magit-branch-or-checkout)
 #+END_SRC
 ** DISABLED LSP-mode
 #+BEGIN_SRC emacs-lisp
@@ -288,8 +288,8 @@ Hotkey for Browser
 ** LSP Mode
 *** LSP-Treemacs
 #+BEGIN_SRC emacs-lisp
-(use-package! lsp-treemacs
-  :defer t)
+;; (use-package! lsp-treemacs
+  ;; :defer t)
 #+END_SRC
 ** Company Mode
 Company mode is included with Doom Emacs, but we're going to do this from
@@ -316,18 +316,18 @@ scratch because it's just not working for us
 #+END_SRC
 *** company-lsp
 #+BEGIN_SRC emacs-lisp
-(use-package! company-lsp
-  :defer t
-  :config
-  (push 'company-lsp company-backends)
-  (push 'company-robe company-backends)
-  (push 'company-web company-backends)
-  ;; (setq company-minimum-prefix-length 0)            ; WARNING, probably you will get perfomance issue if min len is 0!
-  (setq company-tooltip-limit 20)                      ; bigger popup window
-  (setq company-tooltip-align-annotations 't)          ; align annotations to the right tooltip border
-  (setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
-  (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
-)
+;; (use-package! company-lsp
+;;   :defer t
+;;   :config
+;;   (push 'company-lsp company-backends)
+;;   (push 'company-robe company-backends)
+;;   (push 'company-web company-backends)
+;;   ;; (setq company-minimum-prefix-length 0)            ; WARNING, probably you will get perfomance issue if min len is 0!
+;;   (setq company-tooltip-limit 20)                      ; bigger popup window
+;;   (setq company-tooltip-align-annotations 't)          ; align annotations to the right tooltip border
+;;   (setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
+;;   (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
+;; )
 #+END_SRC
 *** company-web
 #+BEGIN_SRC emacs-lisp
@@ -667,3 +667,9 @@ git pull
 rm -f ~/.emacs.d/.local/straight/build-cache.el
 doom sync
 #+END_SRC
+
+** Compiled Emacs terminal and other stuff:
+https://emacsformacosx.com/tips
+** If issue with recursive load
+*** From https://github.com/bbatsov/prelude/issues/1134
+`(setq load-prefer-newer t)`
