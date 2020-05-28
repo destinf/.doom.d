@@ -2,7 +2,7 @@
 ;;; ~/.doom.d/packages.el
 
 (package! rvm)
-(package! helm-dash)
+;; (package! helm-dash)
 (package! avy)
 (package! coffee-mode)
 (package! auto-dictionary)
@@ -45,3 +45,5 @@
 
 ;; TODO Pin this package
 ;; (package! company-web)
+
+(package! impatient-mode)

@@ -31,6 +31,7 @@
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        ;; hydra
        indent-guides     ; highlighted indent columns
+       minimap           ; show a map of the code on the side
        modeline          ; snazzy, Atom-inspired modeline, plus API
        nav-flash         ; blink the current line after jumping
        ophints           ; highlight the region an operation acts on
@@ -85,7 +86,7 @@
        cc                ; C/C++/Obj-C madness
        data              ; config/data formats
        emacs-lisp        ; drown in parentheses
-       go                ; the hipster dialect
+       (go +lsp)         ; the hipster dialect
        javascript        ; all(hope(abandon(ye(who(enter(here))))))
        markdown          ; writing docs for people to ignore
        (org              ; organize your plain life in plain text
