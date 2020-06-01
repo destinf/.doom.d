@@ -72,7 +72,7 @@
        editorconfig      ; let someone else argue about tabs vs spaces
        (eval +overlay)     ; run code, run (also, repls)
        gist              ; interacting with github gists
-       (lookup +docsets)              ; navigate your code and its documentation
+       (lookup +docsets +dictionary)              ; navigate your code and its documentation
        lsp
        macos             ; MacOS-specific commands
        magit             ; a git porcelain for Emacs
@@ -87,7 +87,7 @@
        data              ; config/data formats
        emacs-lisp        ; drown in parentheses
        (go +lsp)         ; the hipster dialect
-       javascript        ; all(hope(abandon(ye(who(enter(here))))))
+       (javascript +lsp)        ; all(hope(abandon(ye(who(enter(here))))))
        markdown          ; writing docs for people to ignore
        (org              ; organize your plain life in plain text
         +dragndrop       ; drag & drop files/images into org buffers
@@ -99,7 +99,10 @@
        php               ; perl's insecure younger brother
        python            ; beautiful is better than ugly
        rest              ; Emacs as a REST client
-       (ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
+       (ruby
+          +lsp
+          +rails
+          +rvm)          ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        sh                ; she sells {ba,z,fi}sh shells on the C xor
        web               ; the tubes
        yaml              ; JSON, but readable
