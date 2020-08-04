@@ -79,15 +79,18 @@
        make              ; run make tasks from Emacs
        pdf               ; pdf enhancements
        rgb               ; creating color strings
+       taskrunner
        tmux              ; an API for interacting with tmux
        upload            ; map local to remote projects via ssh/ftp
 
        :lang
        cc                ; C/C++/Obj-C madness
        data              ; config/data formats
+       elixir            ; erlang done right
        emacs-lisp        ; drown in parentheses
        (go +lsp)         ; the hipster dialect
        (javascript +lsp)        ; all(hope(abandon(ye(who(enter(here))))))
+       json              ; At least it ain't XML
        markdown          ; writing docs for people to ignore
        (org              ; organize your plain life in plain text
         +dragndrop       ; drag & drop files/images into org buffers
@@ -107,11 +110,14 @@
        web               ; the tubes
        yaml              ; JSON, but readable
 
+       :email
+       (mu4e +gmail)
+
        :app
        calendar
        irc               ; how neckbeards socialize
        (rss +org)        ; emacs as an RSS reader
-       ;;twitter           ; twitter client https://twitter.com/vnought
+       twitter           ; twitter client https://twitter.com/vnought
 
        :config
        literate
