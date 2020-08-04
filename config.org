@@ -368,8 +368,7 @@ in default doom-emacs
 ** Theme
 #+BEGIN_SRC emacs-lisp
 (if (display-graphic-p)
-  (load-theme 'doom-dracula t)
-  (load-theme 'wheatgrass t))
+  (load-theme 'doom-gruvbox t))
 #+END_SRC
 ** Window Configuration
 #+BEGIN_SRC emacs-lisp
