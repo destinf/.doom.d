@@ -47,3 +47,5 @@
 ;; (package! company-web)
 
 (package! impatient-mode)
+(package! kubernetes)
+(package! kubernetes-evil)
