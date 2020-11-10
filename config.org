@@ -280,6 +280,10 @@ Hide the menu bar if it isn't hidden
 #+BEGIN_SRC elisp
 (toggle-frame-maximized)
 #+END_SRC
+** Suppress cl warnings
+#+BEGIN_SRC elisp
+(setq byte-compile-warnings '(cl-functions))
+#+END_SRC
 * NOTES
 :properties:
 :header-args: :tangle no
