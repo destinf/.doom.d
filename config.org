@@ -15,6 +15,10 @@ Don't use doom's popups
 (after! deadgrep
   (set-popup-rule! "^\\*deadgrep" :height 200))
 #+END_SRC
+** CIDER (Clojure)
+#+begin_src emacs-lisp
+(cider-auto-test-mode 1)
+#+end_src
 * Custom Configuration
 ** Yank filename relative to project
 #+BEGIN_SRC emacs-lisp
@@ -51,8 +55,8 @@ Don't use doom's popups
 #+END_SRC
 ** Font
 #+BEGIN_SRC elisp
-  (setq doom-font (font-spec :family "SauceCodePro Nerd Font Mono" :size 18 :weight 'semi-light)
-    doom-variable-pitch-font (font-spec :family "SauceCodePro Nerd Font Mono" :size 13))
+  (setq doom-font (font-spec :family "Source Code Pro" :size 18 :weight 'semi-light)
+        doom-variable-pitch-font (font-spec :family "Source Code Pro" :size 16))
 #+END_SRC
 ** Menu Bar
 Hide the menu bar if it isn't hidden
