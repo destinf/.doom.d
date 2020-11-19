@@ -9,17 +9,37 @@ https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
 ** Deadgrep
 Don't use doom's popups
 #+BEGIN_SRC emacs-lisp
-(map!
- "C-c s ;" #'deadgrep
- "<f5>" #'deadgrep)
+
 (after! deadgrep
-  (set-popup-rule! "^\\*deadgrep" :height 200))
+  (set-popup-rule! "^\\*deadgrep" :height 200)
+  :config
+  (map!
+   "C-c s ;" #'deadgrep
+   "<f5>" #'deadgrep))
 #+END_SRC
-** CIDER (Clojure)
+
+** Clojure Language
+*** CIDER (Clojure)
 #+begin_src emacs-lisp
 (after! cider
   (cider-auto-test-mode 1))
 #+end_src
+*** flycheck-clojure
+#+begin_src emacs-lisp
+(use-package! flycheck-clojure
+  :defer t
+  :commands (flycheck-clojure-setup)               ;; autoload
+  :config
+  (eval-after-load 'flycheck
+    '(setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages))
+  (add-hook 'after-init-hook #'global-flycheck-mode))
+(after! cider (flycheck-clojure-setup))
+(use-package! flycheck-pos-tip
+  :defer t
+  :after flycheck)
+#+end_src
+
+
 * Custom Configuration
 ** Yank filename relative to project
 #+BEGIN_SRC emacs-lisp
@@ -34,6 +54,77 @@ Don't use doom's popups
 #+BEGIN_SRC emacs-lisp
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 (setq exec-path (append exec-path '("/usr/local/bin")))
+#+END_SRC
+* Key Configuration
+**This is my leader config which overrides some of the other leader configs
+in default doom-emacs
+#+BEGIN_SRC emacs-lisp
+(map! :n "gb" #'browse-url
+      :mnoeivg "C-n" #'next-line
+      :mnoeivg "C-p" #'previous-line
+      )
+
+(map! :leader
+      :desc "M-x" "SPC" #'execute-extended-command
+      :desc "Search project" "/"
+      (cond ((featurep! :completion ivy)  #'+ivy/project-search)
+            ((featurep! :completion helm) #'+helm/project-search))
+
+      (:prefix ("b" . "buffer")
+        :desc "ibuffer" "i" #'ibuffer)
+
+      (:prefix ("j" . "jump")
+        :desc "avy-goto-char-2" :nv "c" #'avy-goto-char-2
+        :desc "avy-goto-line" :nv "l" #'avy-goto-line
+        :desc "avy-goto-char-timer" :nv "j" #'avy-goto-char-timer)
+
+      (:prefix ("y" . "snippets")
+        :desc "New snippet"                "n" #'yas-new-snippet
+        :desc "Insert snippet"             "i" #'yas-insert-snippet
+        :desc "Jump to mode snippet"       "/" #'yas-visit-snippet-file
+        :desc "Jump to snippet"            "s" #'+snippets/find-file
+        :desc "Browse snippets"            "S" #'+snippets/browse
+        :desc "Reload snippets"            "r" #'yas-reload-all)
+
+      (:prefix ("r" . "resume")
+        :desc "Resume Ivy"                   "l" #'ivy-resume)
+      (:prefix ("s" . "search")
+        "/" nil
+        "n" nil
+        "r" nil
+        "s" nil
+        "S" nil
+        :desc "Jump to symbol across buffers" "I" #'imenu-anywhere
+        :desc "Search buffer"                 "b" #'swiper
+        :desc "Search current directory"      "d"
+        (cond ((featurep! :completion ivy)  #'+ivy/project-search-from-cwd)
+              ((featurep! :completion helm) #'+helm/project-search-from-cwd))
+        :desc "Jump to symbol"                "i" #'imenu
+        :desc "Jump to link"                  "l" #'ace-link
+        :desc "Look up online"                "o" #'+lookup/online-select
+        :desc "Search project"                "p"
+        (cond ((featurep! :completion ivy)  #'+ivy/project-search)
+              ((featurep! :completion helm) #'+helm/project-search))
+        :desc "deadgrep"                      ";" #'deadgrep
+        )
+      (:prefix ("p")
+        :desc "Find file in project" "f" #'projectile-find-file)
+      (:prefix ("f")
+        :desc "Toggle Treemacs" "t" #'treemacs
+        :nv "y" nil
+        (:prefix ("y")
+          :desc "Yank absolute filename" "y" #'+default/yank-buffer-filename
+          :desc "Yank relative filename" "Y" #'yank-buffer-filename-relative))
+          )
+(map!
+  ;; Easier window navigation
+  :n "-"     #'dired-jump
+  :n "C-s"   #'counsel-grep-or-swiper
+  (:when (featurep! :ui tabs)
+      :n "gt" #'centaur-tabs-forward
+      :n "gT" #'centaur-tabs-backward)
+)
+(setq mac-option-modifier 'meta)
 #+END_SRC
 * Editor Configuration
 ** Indents
