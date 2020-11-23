@@ -14,8 +14,8 @@ Don't use doom's popups
   (set-popup-rule! "^\\*deadgrep" :height 200)
   :config
   (map!
-   "C-c s ;" #'deadgrep
-   "<f5>" #'deadgrep))
+    "C-c s ;" #'deadgrep
+    "<f5>" #'deadgrep))
 #+END_SRC
 
 ** Clojure Language
@@ -38,6 +38,13 @@ Don't use doom's popups
   :defer t
   :after flycheck)
 #+end_src
+** counsel-dash
+#+BEGIN_SRC emacs-lisp
+(use-package! counsel-dash
+  :config
+  (add-hook 'emacs-lisp-mode-hook (lambda () (setq-local counsel-dash-docsets '("Emacs Lisp"))))
+  (add-hook 'ruby-mode-hook (lambda () (setq-local counsel-dash-docsets '("Ruby")))))
+#+END_SRC
 
 
 * Custom Configuration

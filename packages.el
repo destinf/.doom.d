@@ -2,6 +2,7 @@
 ;;; ~/.doom.d/packages.el
 
 (package! auto-dictionary)
+(package! counsel-dash)
 (package! deadgrep)
 (package! flycheck-clojure)
 (package! flycheck-pos-tip)
