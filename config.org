@@ -38,6 +38,11 @@ Don't use doom's popups
   :defer t
   :after flycheck)
 #+end_src
+*** Clojure REPL
+#+begin_src emacs-lisp
+  (define-key cider-repl-mode-map (kbd "<up>") 'cider-repl-previous-input)
+  (define-key cider-repl-mode-map (kbd "<down>") 'cider-repl-next-input)
+#+end_src
 ** counsel-dash
 #+BEGIN_SRC emacs-lisp
 (use-package! counsel-dash
@@ -45,8 +50,6 @@ Don't use doom's popups
   (add-hook 'emacs-lisp-mode-hook (lambda () (setq-local counsel-dash-docsets '("Emacs Lisp"))))
   (add-hook 'ruby-mode-hook (lambda () (setq-local counsel-dash-docsets '("Ruby")))))
 #+END_SRC
-
-
 * Custom Configuration
 ** Yank filename relative to project
 #+BEGIN_SRC emacs-lisp
