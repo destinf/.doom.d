@@ -9,7 +9,6 @@ https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
 ** Deadgrep
 Don't use doom's popups
 #+BEGIN_SRC emacs-lisp
-
 (after! deadgrep
   (set-popup-rule! "^\\*deadgrep" :height 200)
   :config
@@ -40,8 +39,9 @@ Don't use doom's popups
 #+end_src
 *** Clojure REPL
 #+begin_src emacs-lisp
-  (define-key cider-repl-mode-map (kbd "<up>") 'cider-repl-previous-input)
-  (define-key cider-repl-mode-map (kbd "<down>") 'cider-repl-next-input)
+  (map! :map cider-repl-mode-map
+        :ni "<up>" #'cider-repl-previous-input
+        :ni "<down>" #'cider-repl-next-input)
 #+end_src
 ** counsel-dash
 #+BEGIN_SRC emacs-lisp
@@ -69,10 +69,10 @@ Don't use doom's popups
 **This is my leader config which overrides some of the other leader configs
 in default doom-emacs
 #+BEGIN_SRC emacs-lisp
-(map! :n "gb" #'browse-url
-      :mnoeivg "C-n" #'next-line
-      :mnoeivg "C-p" #'previous-line
-      )
+;; (map!
+;;       :mnoeivg "C-n" #'next-line
+;;       :mnoeivg "C-p" #'previous-line
+;; )
 
 (map! :leader
       :desc "M-x" "SPC" #'execute-extended-command
@@ -130,9 +130,7 @@ in default doom-emacs
   ;; Easier window navigation
   :n "-"     #'dired-jump
   :n "C-s"   #'counsel-grep-or-swiper
-  (:when (featurep! :ui tabs)
-      :n "gt" #'centaur-tabs-forward
-      :n "gT" #'centaur-tabs-backward)
+  :n "gb" #'browse-url
 )
 (setq mac-option-modifier 'meta)
 #+END_SRC
@@ -145,9 +143,9 @@ in default doom-emacs
 ** Line Numbering
 #+BEGIN_SRC emacs-lisp
 ;; Set line numbers to be relative
-(setq display-line-numbers 'relative)
-(setq display-line-numbers-type 'relative)
-(setq display-line-numbers-current-absolute t)
+;; (setq display-line-numbers 'relative)
+;; (setq display-line-numbers-type 'relative)
+;; (setq display-line-numbers-current-absolute t)
 ;; (global-display-line-numbers-mode t)
 #+END_SRC
 ** Theme
@@ -173,7 +171,7 @@ Hide the menu bar if it isn't hidden
 #+END_SRC
 ** Suppress cl warnings
 #+BEGIN_SRC elisp
-(setq byte-compile-warnings '(cl-functions))
+;; (setq byte-compile-warnings '(cl-functions))
 #+END_SRC
 * NOTES
 :properties:
