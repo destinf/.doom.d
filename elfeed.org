@@ -3,3 +3,10 @@
 * root :elfeed:
 ** Programming :programming:
 *** [[https://this-week-in-rust.org/rss.xml][This Week in Rust]] :rust:
+** Humour :humour:
+*** [[https://xkcd.com/rss.xml][XKCD]] :xkcd:
+** News :news:
+*** Top News :tops:
+**** [[http://rss.cnn.com/rss/cnn_topstories.rss][CNN Top Stories]] :cnn:
+**** [[ http://feeds.bbci.co.uk/news/rss.xml][BBC Top news]] :bbc:
+**** [[https://rss.cbc.ca/lineup/topstories.xml][CBC]] :cbc:
