@@ -9,8 +9,6 @@
 (package! git-link)
 (package! org-jira)
 (package! rvm)
-(package! tide)
 (package! tss)
-(package! typescript-mode)
 (package! web-beautify)
 (package! yasnippet-snippets)

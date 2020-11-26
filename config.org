@@ -138,6 +138,7 @@ in default doom-emacs
 ** Indents
 #+BEGIN_SRC emacs-lisp
 (setq-default tab-width 2)
+(setq-default web-mode-code-indent-offset 2)
 ;; (setq-default evil-shift-width 2)
 #+END_SRC
 ** Line Numbering
