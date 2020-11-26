@@ -6,17 +6,6 @@
 * Ideas and inspiration
 https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
 * Package Configuration
-** Deadgrep
-Don't use doom's popups
-#+BEGIN_SRC emacs-lisp
-(after! deadgrep
-  (set-popup-rule! "^\\*deadgrep" :height 200)
-  :config
-  (map!
-    "C-c s ;" #'deadgrep
-    "<f5>" #'deadgrep))
-#+END_SRC
-
 ** Clojure Language
 *** CIDER (Clojure)
 #+begin_src emacs-lisp
@@ -50,6 +39,10 @@ Don't use doom's popups
   (add-hook 'emacs-lisp-mode-hook (lambda () (setq-local counsel-dash-docsets '("Emacs Lisp"))))
   (add-hook 'ruby-mode-hook (lambda () (setq-local counsel-dash-docsets '("Ruby")))))
 #+END_SRC
+** Elfeed Configuration
+#+begin_src emacs-lisp
+(setq rmh-elfeed-org-files (list "~/.doom.d/elfeed.org"))
+#+end_src
 * Custom Configuration
 ** Yank filename relative to project
 #+BEGIN_SRC emacs-lisp
@@ -79,10 +72,8 @@ in default doom-emacs
       :desc "Search project" "/"
       (cond ((featurep! :completion ivy)  #'+ivy/project-search)
             ((featurep! :completion helm) #'+helm/project-search))
-
       (:prefix ("b" . "buffer")
         :desc "ibuffer" "i" #'ibuffer)
-
       (:prefix ("j" . "jump")
         :desc "avy-goto-char-2" :nv "c" #'avy-goto-char-2
         :desc "avy-goto-line" :nv "l" #'avy-goto-line
@@ -95,7 +86,6 @@ in default doom-emacs
         :desc "Jump to snippet"            "s" #'+snippets/find-file
         :desc "Browse snippets"            "S" #'+snippets/browse
         :desc "Reload snippets"            "r" #'yas-reload-all)
-
       (:prefix ("r" . "resume")
         :desc "Resume Ivy"                   "l" #'ivy-resume)
       (:prefix ("s" . "search")
@@ -115,8 +105,7 @@ in default doom-emacs
         :desc "Search project"                "p"
         (cond ((featurep! :completion ivy)  #'+ivy/project-search)
               ((featurep! :completion helm) #'+helm/project-search))
-        :desc "deadgrep"                      ";" #'deadgrep
-        )
+        :desc "deadgrep"                      ";" #'deadgrep)
       (:prefix ("p")
         :desc "Find file in project" "f" #'projectile-find-file)
       (:prefix ("f")
@@ -124,8 +113,7 @@ in default doom-emacs
         :nv "y" nil
         (:prefix ("y")
           :desc "Yank absolute filename" "y" #'+default/yank-buffer-filename
-          :desc "Yank relative filename" "Y" #'yank-buffer-filename-relative))
-          )
+          :desc "Yank relative filename" "Y" #'yank-buffer-filename-relative)))
 (map!
   ;; Easier window navigation
   :n "-"     #'dired-jump
@@ -169,10 +157,6 @@ Hide the menu bar if it isn't hidden
 ** Start in maximized screen
 #+BEGIN_SRC elisp
 (toggle-frame-maximized)
-#+END_SRC
-** Suppress cl warnings
-#+BEGIN_SRC elisp
-;; (setq byte-compile-warnings '(cl-functions))
 #+END_SRC
 * NOTES
 :properties:
