@@ -120,15 +120,15 @@
        web               ; the tubes
        yaml              ; JSON, but readable
 
-       :email
-       (mu4e +gmail)
+       ;; :email
+       ;; (mu4e +gmail)
 
        :app
-       irc               ; how neckbeards socialize
+       ;; irc               ; how neckbeards socialize
        (rss +org)        ; emacs as an RSS reader
-       twitter           ; twitter client https://twitter.com/vnought
+       ;; twitter           ; twitter client https://twitter.com/vnought
 
-       :config
+       ;; :config
        literate
        (default +bindings +smartparens))
 

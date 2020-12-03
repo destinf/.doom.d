@@ -41,7 +41,7 @@ https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
 #+END_SRC
 ** Elfeed Configuration
 #+begin_src emacs-lisp
-(setq rmh-elfeed-org-files (list "~/.doom.d/elfeed.org"))
+  (setq rmh-elfeed-org-files (list "~/.doom.d/elfeed.org"))
 #+end_src
 * Custom Configuration
 ** Yank filename relative to project
@@ -74,11 +74,6 @@ in default doom-emacs
             ((featurep! :completion helm) #'+helm/project-search))
       (:prefix ("b" . "buffer")
         :desc "ibuffer" "i" #'ibuffer)
-      (:prefix ("j" . "jump")
-        :desc "avy-goto-char-2" :nv "c" #'avy-goto-char-2
-        :desc "avy-goto-line" :nv "l" #'avy-goto-line
-        :desc "avy-goto-char-timer" :nv "j" #'avy-goto-char-timer)
-
       (:prefix ("y" . "snippets")
         :desc "New snippet"                "n" #'yas-new-snippet
         :desc "Insert snippet"             "i" #'yas-insert-snippet
@@ -86,14 +81,11 @@ in default doom-emacs
         :desc "Jump to snippet"            "s" #'+snippets/find-file
         :desc "Browse snippets"            "S" #'+snippets/browse
         :desc "Reload snippets"            "r" #'yas-reload-all)
+      (:prefix "o"
+        :desc "Elfeed (RSS Feed)"          "e" #'elfeed)
       (:prefix ("r" . "resume")
         :desc "Resume Ivy"                   "l" #'ivy-resume)
       (:prefix ("s" . "search")
-        "/" nil
-        "n" nil
-        "r" nil
-        "s" nil
-        "S" nil
         :desc "Jump to symbol across buffers" "I" #'imenu-anywhere
         :desc "Search buffer"                 "b" #'swiper
         :desc "Search current directory"      "d"
@@ -139,9 +131,7 @@ in default doom-emacs
 #+END_SRC
 ** Theme
 #+BEGIN_SRC emacs-lisp
-(if (display-graphic-p)
-  ;; (load-theme 'doom-city-lights t)
-  (setq doom-theme 'doom-city-lights))
+  (if (display-graphic-p) (setq doom-theme 'doom-city-lights))
 #+END_SRC
 ** Font
 #+BEGIN_SRC elisp
@@ -151,9 +141,9 @@ in default doom-emacs
 ** Menu Bar
 Hide the menu bar if it isn't hidden
 #+BEGIN_SRC elisp
-(menu-bar-mode -1)
-(toggle-scroll-bar -1)
-(tool-bar-mode -1)
+  ;; (menu-bar-mode -1)
+  ;; (toggle-scroll-bar -1)
+  ;; (tool-bar-mode -1)
 #+END_SRC
 ** Start in maximized screen
 #+BEGIN_SRC elisp
