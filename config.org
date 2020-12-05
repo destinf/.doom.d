@@ -117,10 +117,24 @@ in default doom-emacs
 * Editor Configuration
 ** Indents
 #+BEGIN_SRC emacs-lisp
-(setq-default tab-width 2)
-(setq-default web-mode-code-indent-offset 2)
 ;; (setq-default evil-shift-width 2)
+  (setq-default tab-width 2)
 #+END_SRC
+*** Web Mode
+#+begin_src emacs-lisp
+  (setq-default web-mode-code-indent-offset 2)
+  (setq-default web-mode-markup-indent-offset 2)
+  (setq-default web-mode-attr-indent-offset 2)
+  (setq-default web-mode-attr-value-indent-offset 2)
+#+end_src
+*** Typescript
+#+begin_src emacs-lisp
+  (setq-default typescript-indent-level 2)
+#+end_src
+*** Ruby
+#+begin_src emacs-lisp
+(setq-default ruby-indent-level 2)
+#+end_src
 ** Line Numbering
 #+BEGIN_SRC emacs-lisp
 ;; Set line numbers to be relative
