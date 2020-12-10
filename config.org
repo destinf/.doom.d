@@ -39,6 +39,13 @@ https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
   (add-hook 'emacs-lisp-mode-hook (lambda () (setq-local counsel-dash-docsets '("Emacs Lisp"))))
   (add-hook 'ruby-mode-hook (lambda () (setq-local counsel-dash-docsets '("Ruby")))))
 #+END_SRC
+** mood-line
+#+begin_src emacs-lisp
+(use-package! mood-line
+  :ensure t
+  :config
+  (mood-line-mode))
+#+end_src
 ** Elfeed Configuration
 #+begin_src emacs-lisp
   (setq rmh-elfeed-org-files (list "~/.doom.d/elfeed.org"))
@@ -163,6 +170,10 @@ Hide the menu bar if it isn't hidden
 #+BEGIN_SRC elisp
 (toggle-frame-maximized)
 #+END_SRC
+** Start the emacs server
+#+begin_src emacs-lisp
+(server-start)
+#+end_src
 * NOTES
 :properties:
 :header-args: :tangle no

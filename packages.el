@@ -6,6 +6,7 @@
 (package! flycheck-clojure)
 (package! flycheck-pos-tip)
 (package! git-link)
+(package! mood-line)
 (package! org-jira)
 (package! rvm)
 (package! tss)
