@@ -9,3 +9,5 @@
 *** Top News :tops:
 **** [[ http://feeds.bbci.co.uk/news/rss.xml][BBC Top news]] :bbc:
 **** [[https://rss.cbc.ca/lineup/topstories.xml][CBC]] :cbc:
+** Shopping :shopping:
+*** [[https://www.redflagdeals.com/rss/deals.php?city=port-lands][RedFlagDeals]] :redflagdeals:
