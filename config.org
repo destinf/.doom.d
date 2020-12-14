@@ -152,7 +152,7 @@ in default doom-emacs
 #+END_SRC
 ** Theme
 #+BEGIN_SRC emacs-lisp
-  (if (display-graphic-p) (setq doom-theme 'doom-city-lights))
+  (if (display-graphic-p) (setq doom-theme 'doom-nord))
 #+END_SRC
 ** Font
 #+BEGIN_SRC elisp
