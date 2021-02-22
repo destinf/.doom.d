@@ -7,6 +7,7 @@
 (package! flycheck-pos-tip)
 (package! git-link)
 (package! mood-line)
+(package! graphviz-dot-mode)
 (package! org-jira)
 (package! rvm)
 (package! tss)

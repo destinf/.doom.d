@@ -50,6 +50,16 @@ https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
 #+begin_src emacs-lisp
   (setq rmh-elfeed-org-files (list "~/.doom.d/elfeed.org"))
 #+end_src
+** Graphviz settings
+#+begin_src emacs-lisp
+(use-package! graphviz-dot-mode
+  :defer t
+  :config
+  (setq graphviz-dot-indent-width 4))
+(use-package! company-graphviz-dot
+  :after
+  graphviz-dot-mode)
+#+end_src
 * Custom Configuration
 ** Yank filename relative to project
 #+BEGIN_SRC emacs-lisp
