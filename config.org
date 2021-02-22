@@ -156,8 +156,8 @@ in default doom-emacs
 #+END_SRC
 ** Font
 #+BEGIN_SRC elisp
-  (setq doom-font (font-spec :family "Source Code Pro" :size 18 :weight 'semi-light)
-        doom-variable-pitch-font (font-spec :family "Source Code Pro" :size 16))
+  (setq doom-font (font-spec :family "Source Code Pro" :size 16 :weight 'semi-light)
+        doom-variable-pitch-font (font-spec :family "Source Code Pro" :size 14))
 #+END_SRC
 ** Menu Bar
 Hide the menu bar if it isn't hidden
