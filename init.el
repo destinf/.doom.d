@@ -42,16 +42,15 @@
        ;; Error during redisplay: (eval (doom-modeline-segment--checker)) signaled (wrong-type-argument plistp doom-modeline-warning)
        ;; modeline          ; snazzy, Atom-inspired modeline, plus API
        nav-flash   ; blink cursor line after big motions
-       ;;neotree           ; a project drawer, like NERDTree for vim
+       neotree           ; a project drawer, like NERDTree for vim
        ophints                    ; highlight the region an operation acts on
        (popup +defaults)          ; tame sudden yet inevitable temporary windows
        ;;tabs              ; a tab bar for Emacs
-       treemacs                      ; a project drawer, like neotree but cooler
        unicode           ; extended unicode support for various languages
        vc-gutter              ; vcs diff in the fringe
        vi-tilde-fringe        ; fringe tildes to mark beyond EOB
        window-select          ; visually switch windows
-       ;; workspaces             ; tab emulation, persistence & separate workspaces
+       workspaces             ; tab emulation, persistence & separate workspaces ; FIXME This is causing a display crash
        zen                    ; distraction-free coding or writing
 
        :editor
@@ -60,7 +59,7 @@
        fold                           ; (nigh) universal code folding
        ;;(format +onsave)  ; automated prettiness
        ;;god               ; run Emacs commands without modifier keys
-       ;; lispy                       ; vim for lisp, for people who don't like vim
+       lispy                       ; vim for lisp, for people who don't like vim
        multiple-cursors            ; editing in many places at once
        ;;objed             ; text object editing for the innocent
        ;;parinfer          ; turn lisp into python, sort of

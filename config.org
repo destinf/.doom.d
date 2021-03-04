@@ -176,6 +176,11 @@ Hide the menu bar if it isn't hidden
   ;; (toggle-scroll-bar -1)
   ;; (tool-bar-mode -1)
 #+END_SRC
+** Org Mode
+Set org agenda files
+#+begin_src emacs-lisp
+(setq org-agenda-files (quote ("~/org" "~/.deft")))
+#+end_src
 ** Start in maximized screen
 #+BEGIN_SRC elisp
 (toggle-frame-maximized)
