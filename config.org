@@ -9,8 +9,8 @@ https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
 ** Clojure Language
 *** CIDER (Clojure)
 #+begin_src emacs-lisp
-(after! cider
-  (cider-auto-test-mode 1))
+;; (after! cider
+;;   (cider-auto-test-mode 1))
 #+end_src
 *** flycheck-clojure
 #+begin_src emacs-lisp
@@ -31,6 +31,11 @@ https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
   (map! :map cider-repl-mode-map
         :ni "<up>" #'cider-repl-previous-input
         :ni "<down>" #'cider-repl-next-input)
+#+end_src
+*** Clojure mode
+#+begin_src emacs-lisp
+(after! clojure-mode
+  (setq clojure-indent-style 'align-arguments))
 #+end_src
 ** counsel-dash
 #+BEGIN_SRC emacs-lisp
@@ -128,7 +133,9 @@ in default doom-emacs
   :n "-"     #'dired-jump
   :n "C-s"   #'counsel-grep-or-swiper
   :n "gb" #'browse-url
+  :n "gsr" #'avy-resume
 )
+
 (setq mac-option-modifier 'meta)
 #+END_SRC
 * Editor Configuration

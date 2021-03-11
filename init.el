@@ -20,10 +20,10 @@
        ;;layout            ; auie,ctsrnm is the superior home row
 
        :completion
-       company ; the ultimate code completion backend
+       company           ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
-       ivy                              ; a search engine for love and life
+       ivy               ; a search engine for love and life
 
        :ui
        deft                   ; notational velocity for Emacs
@@ -50,19 +50,19 @@
        vc-gutter              ; vcs diff in the fringe
        vi-tilde-fringe        ; fringe tildes to mark beyond EOB
        window-select          ; visually switch windows
-       workspaces             ; tab emulation, persistence & separate workspaces ; FIXME This is causing a display crash
+       ;; workspaces             ; tab emulation, persistence & separate workspaces ; FIXME This is causing a display crash
        zen                    ; distraction-free coding or writing
 
        :editor
-       (evil +everywhere)             ; come to the dark side, we have cookies
-       file-templates                 ; auto-snippets for empty files
-       fold                           ; (nigh) universal code folding
+       (evil +everywhere); come to the dark side, we have cookies
+       file-templates    ; auto-snippets for empty files
+       fold              ; (nigh) universal code folding
        ;;(format +onsave)  ; automated prettiness
        ;;god               ; run Emacs commands without modifier keys
        lispy                       ; vim for lisp, for people who don't like vim
-       multiple-cursors            ; editing in many places at once
+       ;;multiple-cursors            ; editing in many places at once
        ;;objed             ; text object editing for the innocent
-       ;;parinfer          ; turn lisp into python, sort of
+       ;; parinfer          ; turn lisp into python, sort of
        rotate-text               ; cycle region at point between text candidates
        snippets                  ; my elves. They type so I don't have to
        word-wrap                 ; soft wrapping with language-aware indent
@@ -75,10 +75,10 @@
        vc                ; version-control and Emacs, sitting in a tree
 
        :term
-       ;;eshell            ; the elisp shell that works everywhere
+       eshell            ; the elisp shell that works everywhere
        ;;shell             ; simple shell REPL for Emacs
        ;;term              ; basic terminal emulator for Emacs
-       vterm                            ; the best terminal emulation in Emacs
+       ;;vterm             ; the best terminal emulation in Emacs
 
        :checkers
        syntax                        ; tasing you for every semicolon you forget
@@ -101,11 +101,11 @@
        ;;pass              ; password manager for nerds
        pdf                              ; pdf enhancements
        ;;prodigy           ; FIXME managing external services & code builders
-       rgb                            ; creating color strings
-       taskrunner                     ; taskrunner for all your projects
-       terraform                      ; infrastructure as code
-       tmux                           ; an API for interacting with tmux
-       upload                         ; map local to remote projects via ssh/ftp
+       ;;rgb               ; creating color strings
+       ;;taskrunner        ; taskrunner for all your projects
+       ;;terraform         ; infrastructure as code
+       ;;tmux              ; an API for interacting with tmux
+       ;;upload            ; map local to remote projects via ssh/ftp
 
        :os
        (:if IS-MAC macos)               ; improve compatibility with macOS
@@ -186,6 +186,8 @@
 
        :app
        ;;calendar
+       ;;emms
+       ;;everywhere        ; *leave* Emacs!? You must be joking
        ;;irc               ; how neckbeards socialize
        (rss +org)                       ; emacs as an RSS reader
        ;;twitter           ; twitter client https://twitter.com/vnought
