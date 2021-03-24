@@ -15,26 +15,26 @@
 ;;      directory (for easy access to its source code).
 
 (doom! :input
-       chinese
+       ;; chinese
        ;;japanese
        ;;layout            ; auie,ctsrnm is the superior home row
 
        :completion
        company           ; the ultimate code completion backend
-       ;;helm              ; the *other* search engine for love and life
+       helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
-       ivy               ; a search engine for love and life
+       ;; ivy               ; a search engine for love and life
 
        :ui
        deft                   ; notational velocity for Emacs
        doom                   ; what makes DOOM look the way it does
        doom-dashboard         ; a nifty splash screen for Emacs
-       doom-quit              ; DOOM quit-message prompts when you quit Emacs
+       ;; doom-quit              ; DOOM quit-message prompts when you quit Emacs
        ;; (emoji +unicode)  ; 🙂
        fill-column            ; a `fill-column' indicator
        hl-todo                ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        hydra
-       indent-guides      ; highlighted indent columns
+       ;; indent-guides      ; highlighted indent columns
        ligatures          ; ligatures and symbols to make your code pretty again
        minimap            ; show a map of the code on the side
        ;; NOTE: modeline causes display issues with errors:
@@ -81,9 +81,9 @@
        ;;vterm             ; the best terminal emulation in Emacs
 
        :checkers
-       syntax                        ; tasing you for every semicolon you forget
-       (spell +aspell +everywhere)   ; tasing you for misspelling mispelling
-       grammar                       ; tasing grammar mistake every you make
+       ;; syntax                        ; tasing you for every semicolon you forget
+       ;; (spell +aspell +everywhere)   ; tasing you for misspelling mispelling
+       ;; grammar                       ; tasing grammar mistake every you make
 
        :tools
        ansible

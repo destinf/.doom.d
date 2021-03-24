@@ -96,18 +96,25 @@ in default doom-emacs
             ((featurep! :completion helm) #'+helm/project-search))
       (:prefix ("b" . "buffer")
         :desc "ibuffer" "i" #'ibuffer)
-      (:prefix ("y" . "snippets")
-        :desc "New snippet"                "n" #'yas-new-snippet
-        :desc "Insert snippet"             "i" #'yas-insert-snippet
-        :desc "Jump to mode snippet"       "/" #'yas-visit-snippet-file
-        :desc "Jump to snippet"            "s" #'+snippets/find-file
-        :desc "Browse snippets"            "S" #'+snippets/browse
-        :desc "Reload snippets"            "r" #'yas-reload-all)
+
+      (:prefix ("f")
+        :desc "Toggle Treemacs" "t" #'treemacs
+        :nv "y" nil
+        (:prefix ("y")
+          :desc "Yank absolute filename" "y" #'+default/yank-buffer-filename
+          :desc "Yank relative filename" "Y" #'yank-buffer-filename-relative))
+
       (:prefix "o"
         :desc "Elfeed (RSS Feed)"          "e" #'elfeed)
+
+      (:prefix ("p")
+        :desc "Find file in project" "f" #'projectile-find-file)
+
       (:prefix ("r" . "resume")
-        :desc "Resume Ivy"                   "l" #'ivy-resume)
-      (:prefix ("s" . "search")
+        :desc "Resume Ivy" "l" #'ivy-resume
+        :desc "Resume Avy" "a" #'avy-resume)
+
+      (:prefix ("s")
         :desc "Jump to symbol across buffers" "I" #'imenu-anywhere
         :desc "Search buffer"                 "b" #'swiper
         :desc "Search current directory"      "d"
@@ -120,14 +127,18 @@ in default doom-emacs
         (cond ((featurep! :completion ivy)  #'+ivy/project-search)
               ((featurep! :completion helm) #'+helm/project-search))
         :desc "deadgrep"                      ";" #'deadgrep)
-      (:prefix ("p")
-        :desc "Find file in project" "f" #'projectile-find-file)
-      (:prefix ("f")
-        :desc "Toggle Treemacs" "t" #'treemacs
-        :nv "y" nil
-        (:prefix ("y")
-          :desc "Yank absolute filename" "y" #'+default/yank-buffer-filename
-          :desc "Yank relative filename" "Y" #'yank-buffer-filename-relative)))
+
+      (:prefix ("w")
+       :desc "Edit windows" "e" #'+hydra/window-nav/body)
+
+      (:prefix ("y" . "snippets")
+        :desc "New snippet"                "n" #'yas-new-snippet
+        :desc "Insert snippet"             "i" #'yas-insert-snippet
+        :desc "Jump to mode snippet"       "/" #'yas-visit-snippet-file
+        :desc "Jump to snippet"            "s" #'+snippets/find-file
+        :desc "Browse snippets"            "S" #'+snippets/browse
+        :desc "Reload snippets"            "r" #'yas-reload-all)
+      )
 (map!
   ;; Easier window navigation
   :n "-"     #'dired-jump
