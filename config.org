@@ -3,8 +3,19 @@
 #+STARTUP: hideblocks
 #+PROPERTY: header-args :results silent :tangle yes
 
+* Roadmap
+** TODO Encrypted cloud storage of org files
+** TODO authsource.gpg or authinfo.gpg
 * Ideas and inspiration
-https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
+** https://sam217pa.github.io/2016/09/02/how-to-build-your-own-spacemacs/
+** Sacha Chua's config
+https://pages.sachachua.com/.emacs.d/Sacha.html
+** Tecosaur's doom config (great ideas here)
+https://github.com/tecosaur/emacs-config/blob/master/config.org
+** Robin Horca's config
+https://github.com/sulami/dotfiles/blob/master/emacs/.emacs/README.org
+** Stig's config
+https://github.com/stig/dotfiles/blob/trunk/Emacs.org
 * Package Configuration
 ** Clojure Language
 *** CIDER (Clojure)
@@ -206,6 +217,22 @@ Set org agenda files
 ** Start the emacs server
 #+begin_src emacs-lisp
 (server-start)
+#+end_src
+* Better defaults
+** Simple Settings
+Borrowed from Tecosaur's config
+#+begin_src emacs-lisp
+(setq-default
+ delete-by-moving-to-trash t                      ; Delete files to trash
+ window-combination-resize t                      ; take new window space from all other windows (not just current)
+ x-stretch-cursor t)                              ; Stretch cursor to the glyph width
+
+(setq undo-limit 80000000                         ; Raise undo-limit to 80Mb
+      evil-want-fine-undo t                       ; By default while in insert all changes are one big blob. Be more granular
+      auto-save-default t                         ; Nobody likes to loose work, I certainly don't
+      truncate-string-ellipsis "…")               ; Unicode ellispis are nicer than "...", and also save /precious/ space
+
+(global-subword-mode 1)                           ; Iterate through CamelCase words
 #+end_src
 * NOTES
 :properties:
