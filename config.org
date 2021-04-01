@@ -25,17 +25,17 @@ https://github.com/stig/dotfiles/blob/trunk/Emacs.org
 #+end_src
 *** flycheck-clojure
 #+begin_src emacs-lisp
-(use-package! flycheck-clojure
-  :defer t
-  :commands (flycheck-clojure-setup)               ;; autoload
-  :config
-  (eval-after-load 'flycheck
-    '(setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages))
-  (add-hook 'after-init-hook #'global-flycheck-mode))
-(after! cider (flycheck-clojure-setup))
-(use-package! flycheck-pos-tip
-  :defer t
-  :after flycheck)
+;; (use-package! flycheck-clojure
+;;   :defer t
+;;   :commands (flycheck-clojure-setup)               ;; autoload
+;;   :config
+;;   (eval-after-load 'flycheck
+;;     '(setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages))
+;;   (add-hook 'after-init-hook #'global-flycheck-mode))
+;; (after! cider (flycheck-clojure-setup))
+;; (use-package! flycheck-pos-tip
+;;   :defer t
+;;   :after flycheck)
 #+end_src
 *** Clojure REPL
 #+begin_src emacs-lisp
@@ -75,6 +75,12 @@ https://github.com/stig/dotfiles/blob/trunk/Emacs.org
 (use-package! company-graphviz-dot
   :after
   graphviz-dot-mode)
+#+end_src
+** Javascript
+#+begin_src emacs-lisp
+(use-package! prettier-js
+:hook ((js2-mode-hook . prettier-js-mode)
+       (web-mode-hook . prettier-js-mode)))
 #+end_src
 * Custom Configuration
 ** Yank filename relative to project
@@ -231,8 +237,6 @@ Borrowed from Tecosaur's config
       evil-want-fine-undo t                       ; By default while in insert all changes are one big blob. Be more granular
       auto-save-default t                         ; Nobody likes to loose work, I certainly don't
       truncate-string-ellipsis "…")               ; Unicode ellispis are nicer than "...", and also save /precious/ space
-
-(global-subword-mode 1)                           ; Iterate through CamelCase words
 #+end_src
 * NOTES
 :properties:

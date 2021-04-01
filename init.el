@@ -27,6 +27,7 @@
        deft               ; notational velocity for Emacs
        doom               ; what makes DOOM look the way it does
        doom-dashboard     ; a nifty splash screen for Emacs
+       ;; NOTE with unicode enabled here, may cause emacs to crash if `:ui unicode` isn't enabled
        (emoji +unicode)   ; 🙂
        hl-todo            ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        (ligatures +extra) ; ligatures and symbols to make your code pretty again
@@ -40,17 +41,17 @@
        (popup                     ; tame sudden yet inevitable temporary windows
         +all                      ; catch all popups that start with an asterix
         +defaults)                ; default popup rules
-       treemacs                   ; a project drawer, like neotree but cooler
-       ;;unicode                    ; extended unicode support for various languages
+       ;; treemacs                   ; a project drawer, like neotree but cooler
+       unicode                    ; extended unicode support for various languages
        vc-gutter                        ; vcs diff in the fringe
        vi-tilde-fringe                  ; fringe tildes to mark beyond EOB
        (window-select +numbers)         ; visually switch windows
        workspaces             ; tab emulation, persistence & separate workspaces
-       zen                    ; distraction-free coding or writing
+       ;; zen                    ; distraction-free coding or writing
 
        :editor
        (evil +everywhere)               ; come to the dark side, we have cookies
-       file-templates                   ; auto-snippets for empty files
+       ;; file-templates                   ; auto-snippets for empty files
        fold                             ; (nigh) universal code folding
        format                           ; automated prettiness
        ;;god                        ; run Emacs commands without modifier keys

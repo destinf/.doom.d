@@ -1,21 +1,21 @@
 ;; (after! cider
 ;;   (cider-auto-test-mode 1))
 
-(use-package! flycheck-clojure
-  :defer t
-  :commands (flycheck-clojure-setup)               ;; autoload
-  :config
-  (eval-after-load 'flycheck
-    '(setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages))
-  (add-hook 'after-init-hook #'global-flycheck-mode))
-(after! cider (flycheck-clojure-setup))
-(use-package! flycheck-pos-tip
-  :defer t
-  :after flycheck)
+;; (use-package! flycheck-clojure
+;;   :defer t
+;;   :commands (flycheck-clojure-setup)               ;; autoload
+;;   :config
+;;   (eval-after-load 'flycheck
+;;     '(setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages))
+;;   (add-hook 'after-init-hook #'global-flycheck-mode))
+;; (after! cider (flycheck-clojure-setup))
+;; (use-package! flycheck-pos-tip
+;;   :defer t
+;;   :after flycheck)
 
-  (map! :map cider-repl-mode-map
-        :ni "<up>" #'cider-repl-previous-input
-        :ni "<down>" #'cider-repl-next-input)
+(map! :map cider-repl-mode-map
+      :ni "<up>" #'cider-repl-previous-input
+      :ni "<down>" #'cider-repl-next-input)
 
 (after! clojure-mode
   (setq clojure-indent-style 'align-arguments))
@@ -30,7 +30,7 @@
   :config
   (mood-line-mode))
 
-  (setq rmh-elfeed-org-files (list "~/.doom.d/elfeed.org"))
+(setq rmh-elfeed-org-files (list "~/.doom.d/elfeed.org"))
 
 (use-package! graphviz-dot-mode
   :defer t
@@ -39,6 +39,10 @@
 (use-package! company-graphviz-dot
   :after
   graphviz-dot-mode)
+
+(use-package! prettier-js
+:hook ((js2-mode-hook . prettier-js-mode)
+       (web-mode-hook . prettier-js-mode)))
 
 (defun yank-buffer-filename-relative ()
   "Copy the current buffer's path to the kill ring."
@@ -118,12 +122,12 @@
 ;; (setq-default evil-shift-width 2)
   (setq-default tab-width 2)
 
-  (setq-default web-mode-code-indent-offset 2)
-  (setq-default web-mode-markup-indent-offset 2)
-  (setq-default web-mode-attr-indent-offset 2)
-  (setq-default web-mode-attr-value-indent-offset 2)
+(setq-default web-mode-code-indent-offset 2)
+(setq-default web-mode-markup-indent-offset 2)
+(setq-default web-mode-attr-indent-offset 2)
+(setq-default web-mode-attr-value-indent-offset 2)
 
-  (setq-default typescript-indent-level 2)
+(setq-default typescript-indent-level 2)
 
 (setq-default ruby-indent-level 2)
 
@@ -133,7 +137,7 @@
 ;; (setq display-line-numbers-current-absolute t)
 ;; (global-display-line-numbers-mode t)
 
-  (if (display-graphic-p) (setq doom-theme 'doom-nord))
+(if (display-graphic-p) (setq doom-theme 'doom-nord))
 
 (setq org-agenda-files (quote ("~/org" "~/.deft")))
 
@@ -149,13 +153,11 @@
       auto-save-default t                         ; Nobody likes to loose work, I certainly don't
       truncate-string-ellipsis "…")               ; Unicode ellispis are nicer than "...", and also save /precious/ space
 
-(global-subword-mode 1)                           ; Iterate through CamelCase words
+(setq doom-font (font-spec :family "Fira Code Retina" :size 16)
+      doom-variable-pitch-font (font-spec :family "Fira Code Retina" :size 14))
 
-  (setq doom-font (font-spec :family "Fira Code Retina" :size 16)
-        doom-variable-pitch-font (font-spec :family "Fira Code Retina" :size 14))
-
-  ;; (menu-bar-mode -1)
-  ;; (toggle-scroll-bar -1)
-  ;; (tool-bar-mode -1)
+;; (menu-bar-mode -1)
+;; (toggle-scroll-bar -1)
+;; (tool-bar-mode -1)
 
 (toggle-frame-maximized)
