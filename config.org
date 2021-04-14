@@ -188,7 +188,8 @@ in default doom-emacs
 #+END_SRC
 ** Theme
 #+BEGIN_SRC emacs-lisp
-  (if (display-graphic-p) (setq doom-theme 'doom-nord))
+  ;; (if (display-graphic-p) (setq doom-theme 'doom-nord))
+(load-theme 'adwaita)
 #+END_SRC
 ** Font
 #+BEGIN_SRC elisp
@@ -214,6 +215,15 @@ Set org agenda files
 ** Start the emacs server
 #+begin_src emacs-lisp
 (server-start)
+#+end_src
+** Cursor color
+#+begin_src emacs-lisp
+(setq evil-emacs-state-cursor '("pink" box))
+(setq evil-normal-state-cursor '("pink" box))
+(setq evil-visual-state-cursor '("firebrick" box))
+(setq evil-insert-state-cursor '("yellow" bar))
+(setq evil-replace-state-cursor '("red" bar))
+(setq evil-operator-state-cursor '("red" hollow))
 #+end_src
 * Better defaults
 ** Simple Settings

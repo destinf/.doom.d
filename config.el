@@ -13,9 +13,9 @@
 ;;   :defer t
 ;;   :after flycheck)
 
-(map! :map cider-repl-mode-map
-      :ni "<up>" #'cider-repl-previous-input
-      :ni "<down>" #'cider-repl-next-input)
+  (map! :map cider-repl-mode-map
+        :ni "<up>" #'cider-repl-previous-input
+        :ni "<down>" #'cider-repl-next-input)
 
 (after! clojure-mode
   (setq clojure-indent-style 'align-arguments))
@@ -30,7 +30,7 @@
   :config
   (mood-line-mode))
 
-(setq rmh-elfeed-org-files (list "~/.doom.d/elfeed.org"))
+  (setq rmh-elfeed-org-files (list "~/.doom.d/elfeed.org"))
 
 (use-package! graphviz-dot-mode
   :defer t
@@ -43,13 +43,6 @@
 (use-package! prettier-js
 :hook ((js2-mode-hook . prettier-js-mode)
        (web-mode-hook . prettier-js-mode)))
-
-(defun yank-buffer-filename-relative ()
-  "Copy the current buffer's path to the kill ring."
-  (interactive)
-  (if-let* ((filename (or buffer-file-name (bound-and-true-p list-buffers-directory))))
-    (message (kill-new (abbreviate-file-name (file-relative-name filename (projectile-project-root)))))
-    (error "Couldn't find filename in current buffer")))
 
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 (setq exec-path (append exec-path '("/usr/local/bin")))
@@ -68,11 +61,8 @@
         :desc "ibuffer" "i" #'ibuffer)
 
       (:prefix ("f")
-        :desc "Toggle Treemacs" "t" #'treemacs
-        :nv "y" nil
-        (:prefix ("y")
-          :desc "Yank absolute filename" "y" #'+default/yank-buffer-filename
-          :desc "Yank relative filename" "Y" #'yank-buffer-filename-relative))
+       :desc "Toggle Treemacs" "t" #'treemacs
+        :nv "y" nil)
 
       (:prefix "o"
         :desc "Elfeed (RSS Feed)"          "e" #'elfeed)
@@ -122,12 +112,12 @@
 ;; (setq-default evil-shift-width 2)
   (setq-default tab-width 2)
 
-(setq-default web-mode-code-indent-offset 2)
-(setq-default web-mode-markup-indent-offset 2)
-(setq-default web-mode-attr-indent-offset 2)
-(setq-default web-mode-attr-value-indent-offset 2)
+  (setq-default web-mode-code-indent-offset 2)
+  (setq-default web-mode-markup-indent-offset 2)
+  (setq-default web-mode-attr-indent-offset 2)
+  (setq-default web-mode-attr-value-indent-offset 2)
 
-(setq-default typescript-indent-level 2)
+  (setq-default typescript-indent-level 2)
 
 (setq-default ruby-indent-level 2)
 
@@ -137,11 +127,19 @@
 ;; (setq display-line-numbers-current-absolute t)
 ;; (global-display-line-numbers-mode t)
 
-(if (display-graphic-p) (setq doom-theme 'doom-nord))
+  ;; (if (display-graphic-p) (setq doom-theme 'doom-nord))
+(load-theme 'adwaita)
 
 (setq org-agenda-files (quote ("~/org" "~/.deft")))
 
 (server-start)
+
+(setq evil-emacs-state-cursor '("pink" box))
+(setq evil-normal-state-cursor '("pink" box))
+(setq evil-visual-state-cursor '("firebrick" box))
+(setq evil-insert-state-cursor '("yellow" bar))
+(setq evil-replace-state-cursor '("red" bar))
+(setq evil-operator-state-cursor '("red" hollow))
 
 (setq-default
  delete-by-moving-to-trash t                      ; Delete files to trash
@@ -153,11 +151,11 @@
       auto-save-default t                         ; Nobody likes to loose work, I certainly don't
       truncate-string-ellipsis "…")               ; Unicode ellispis are nicer than "...", and also save /precious/ space
 
-(setq doom-font (font-spec :family "Fira Code Retina" :size 16)
-      doom-variable-pitch-font (font-spec :family "Fira Code Retina" :size 14))
+  (setq doom-font (font-spec :family "Fira Code Retina" :size 16)
+        doom-variable-pitch-font (font-spec :family "Fira Code Retina" :size 14))
 
-;; (menu-bar-mode -1)
-;; (toggle-scroll-bar -1)
-;; (tool-bar-mode -1)
+  ;; (menu-bar-mode -1)
+  ;; (toggle-scroll-bar -1)
+  ;; (tool-bar-mode -1)
 
 (toggle-frame-maximized)
