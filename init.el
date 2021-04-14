@@ -20,7 +20,8 @@
 (doom! :completion
        (company                    ; the ultimate code completion backend
         +childframe)               ; ... when your children are better than you
-       helm                        ; the *other* search engine for love and life
+       ivy
+       ;; helm                        ; the *other* search engine for love and life
 
        :ui
        deft                        ; notational velocity for Emacs
@@ -28,13 +29,13 @@
        ;; NOTE with unicode enabled here, may cause emacs to crash if `:ui unicode` isn't enabled
        (emoji +unicode)            ; 🙂
        hl-todo                     ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
-       (ligatures +extra)          ; ligatures and symbols to make your code pretty again
+       ;; (ligatures +extra)          ; ligatures and symbols to make your code pretty again
        
        ;; NOTE: modeline causes display issues with errors:
        ;; Error during redisplay: (eval (doom-modeline-segment--checker)) signaled (wrong-type-argument plistp doom-modeline-debug)
        ;; Error during redisplay: (eval (doom-modeline-segment--checker)) signaled (wrong-type-argument plistp doom-modeline-warning)
        ;; modeline                 ; snazzy, Atom-inspired modeline, plus API
-       nav-flash                   ; blink the current line after jumping
+       ;; nav-flash                   ; blink the current line after jumping
        ophints                     ; highlight the region an operation acts on
        (popup                      ; tame sudden yet inevitable temporary windows
         +all                       ; catch all popups that start with an asterix
