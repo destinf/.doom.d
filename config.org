@@ -51,6 +51,14 @@ https://github.com/stig/dotfiles/blob/trunk/Emacs.org
 (after! clojure-mode
   (setq clojure-indent-style 'align-arguments))
 #+end_src
+** Company
+#+begin_src emacs-lisp
+(after! company
+  (setq company-idle-delay 0.5
+        company-minimum-prefix-length 2)
+  (setq company-show-numberse t)
+  (add-hook 'evil-normal-state-entry-hook #'company-abort))
+#+end_src
 ** counsel-dash
 #+BEGIN_SRC emacs-lisp
 (use-package! counsel-dash
@@ -79,11 +87,41 @@ https://github.com/stig/dotfiles/blob/trunk/Emacs.org
   :after
   graphviz-dot-mode)
 #+end_src
+** Info colors
+#+begin_src emacs-lisp
+(use-package! info-colors
+  :commands (info-colors-fontify-node)
+  :after
+  (add-hook 'Info-selection-hook 'info-colors-fontify-node)
+  (add-hook 'Info-mode-hook #'mixed-pitch-mode))
+#+end_src
+** Ivy
+#+begin_src emacs-lisp
+(after! ivy
+  (setq ivy-read-action-function #'ivy-hydra-read-action)
+  (setq ivy-sort-max-size 50000))
+#+end_src
 ** Javascript
 #+begin_src emacs-lisp
 (use-package! prettier-js
 :hook ((js2-mode-hook . prettier-js-mode)
        (web-mode-hook . prettier-js-mode)))
+#+end_src
+** Very Large Files
+#+begin_src emacs-lisp
+(use-package! vlf-setup
+  :defer-incrementally vlf-tune vlf-base vlf-write vlf-search vlf-occur vlf-follow vlf-ediff vlf)
+#+end_src
+** Which key
+Decrease the idle delay
+#+begin_src emacs-lisp
+(after! which-key
+  (setq which-key-idle-delay 0.5))
+#+end_src
+** YASnippet
+Nested snippets?
+#+begin_src emacs-lisp
+(setq yas-triggers-in-field t)
 #+end_src
 * Custom Configuration
 ** Add an exec path

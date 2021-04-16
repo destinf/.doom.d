@@ -20,6 +20,12 @@
 (after! clojure-mode
   (setq clojure-indent-style 'align-arguments))
 
+(after! company
+  (setq company-idle-delay 0.5
+        company-minimum-prefix-length 2)
+  (setq company-show-numberse t)
+  (add-hook 'evil-normal-state-entry-hook #'company-abort))
+
 (use-package! counsel-dash
   :config
   (add-hook 'emacs-lisp-mode-hook (lambda () (setq-local counsel-dash-docsets '("Emacs Lisp"))))
@@ -40,9 +46,27 @@
   :after
   graphviz-dot-mode)
 
+(use-package! info-colors
+  :commands (info-colors-fontify-node)
+  :after
+  (add-hook 'Info-selection-hook 'info-colors-fontify-node)
+  (add-hook 'Info-mode-hook #'mixed-pitch-mode))
+
+(after! ivy
+  (setq ivy-read-action-function #'ivy-hydra-read-action)
+  (setq ivy-sort-max-size 50000))
+
 (use-package! prettier-js
 :hook ((js2-mode-hook . prettier-js-mode)
        (web-mode-hook . prettier-js-mode)))
+
+(use-package! vlf-setup
+  :defer-incrementally vlf-tune vlf-base vlf-write vlf-search vlf-occur vlf-follow vlf-ediff vlf)
+
+(after! which-key
+  (setq which-key-idle-delay 0.5))
+
+(setq yas-triggers-in-field t)
 
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 (setq exec-path (append exec-path '("/usr/local/bin")))
