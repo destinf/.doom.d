@@ -13,9 +13,9 @@
 ;;   :defer t
 ;;   :after flycheck)
 
-  (map! :map cider-repl-mode-map
-        :ni "<up>" #'cider-repl-previous-input
-        :ni "<down>" #'cider-repl-next-input)
+(map! :map cider-repl-mode-map
+      :ni "<up>" #'cider-repl-previous-input
+      :ni "<down>" #'cider-repl-next-input)
 
 (after! clojure-mode
   (setq clojure-indent-style 'align-arguments))
@@ -36,7 +36,7 @@
   :config
   (mood-line-mode))
 
-  (setq rmh-elfeed-org-files (list "~/.doom.d/elfeed.org"))
+(setq rmh-elfeed-org-files (list "~/.doom.d/elfeed.org"))
 
 (use-package! graphviz-dot-mode
   :defer t
@@ -136,12 +136,12 @@
 ;; (setq-default evil-shift-width 2)
   (setq-default tab-width 2)
 
-  (setq-default web-mode-code-indent-offset 2)
-  (setq-default web-mode-markup-indent-offset 2)
-  (setq-default web-mode-attr-indent-offset 2)
-  (setq-default web-mode-attr-value-indent-offset 2)
+(setq-default web-mode-code-indent-offset 2)
+(setq-default web-mode-markup-indent-offset 2)
+(setq-default web-mode-attr-indent-offset 2)
+(setq-default web-mode-attr-value-indent-offset 2)
 
-  (setq-default typescript-indent-level 2)
+(setq-default typescript-indent-level 2)
 
 (setq-default ruby-indent-level 2)
 
@@ -151,8 +151,8 @@
 ;; (setq display-line-numbers-current-absolute t)
 ;; (global-display-line-numbers-mode t)
 
-  ;; (if (display-graphic-p) (setq doom-theme 'doom-nord))
-(load-theme 'adwaita)
+;; (if (display-graphic-p) (setq doom-theme 'doom-nord))
+(load-theme 'doom-vibrant t)
 
 (setq org-agenda-files (quote ("~/org" "~/.deft")))
 
@@ -175,11 +175,11 @@
       auto-save-default t                         ; Nobody likes to loose work, I certainly don't
       truncate-string-ellipsis "…")               ; Unicode ellispis are nicer than "...", and also save /precious/ space
 
-  (setq doom-font (font-spec :family "Fira Code Retina" :size 16)
-        doom-variable-pitch-font (font-spec :family "Fira Code Retina" :size 14))
+(setq doom-font (font-spec :family "Fira Code Retina" :size 16)
+      doom-variable-pitch-font (font-spec :family "Fira Code Retina" :size 14))
 
-  ;; (menu-bar-mode -1)
-  ;; (toggle-scroll-bar -1)
-  ;; (tool-bar-mode -1)
+;; (menu-bar-mode -1)
+;; (toggle-scroll-bar -1)
+;; (tool-bar-mode -1)
 
 (toggle-frame-maximized)

@@ -227,7 +227,7 @@ in default doom-emacs
 ** Theme
 #+BEGIN_SRC emacs-lisp
   ;; (if (display-graphic-p) (setq doom-theme 'doom-nord))
-(load-theme 'adwaita)
+(load-theme 'doom-vibrant t)
 #+END_SRC
 ** Font
 #+BEGIN_SRC elisp
